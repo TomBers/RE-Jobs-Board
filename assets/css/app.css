@@ -1,0 +1,17 @@
+/* This file is for your main application css. */
+
+@import "./phoenix.css";
+
+
+.flex-container {
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+}
+
+.flex-item {
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 10px;
+    border: 1px solid black;
+}

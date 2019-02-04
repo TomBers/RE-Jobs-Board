@@ -1,0 +1,7 @@
+<div id="app"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+        window.renderJobs();
+        });
+    </script>
