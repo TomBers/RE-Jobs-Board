@@ -1,1 +1,9 @@
 <h1>Job page <%= @job %></h1>
+
+<div id="app"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+        window.renderJob(<%= @job %>);
+        });
+    </script>

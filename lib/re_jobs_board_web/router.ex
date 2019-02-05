@@ -25,5 +25,6 @@ defmodule ReJobsBoardWeb.Router do
      pipe_through :api
 
      get "/", APIController, :index
+     get "/job/:id", APIController, :job
    end
 end
