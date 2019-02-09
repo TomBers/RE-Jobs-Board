@@ -11,9 +11,7 @@ defmodule ReJobsBoard.Application do
       # Start the Ecto repository
       ReJobsBoard.Repo,
       # Start the endpoint when the application starts
-      ReJobsBoardWeb.Endpoint
-      # Starts a worker by calling: ReJobsBoard.Worker.start_link(arg)
-      # {ReJobsBoard.Worker, arg},
+      ReJobsBoardWeb.Endpoint,
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

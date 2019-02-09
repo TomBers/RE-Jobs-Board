@@ -2,12 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58a2d9a6-90a7-40de-a0d0-93b0b11db648" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/job.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/job.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/jobs.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/jobs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/re_jobs_board/application.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/re_jobs_board/application.ex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/re_jobs_board_web/controllers/api_controller.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/re_jobs_board_web/controllers/api_controller.ex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/re_jobs_board_web/controllers/page_controller.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/re_jobs_board_web/controllers/page_controller.ex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/re_jobs_board_web/router.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/re_jobs_board_web/router.ex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/re_jobs_board_web/templates/layout/app.html.eex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/re_jobs_board_web/templates/layout/app.html.eex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/index.html.eex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/index.html.eex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/job.html.eex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/job.html.eex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix.exs" beforeDir="false" afterPath="$PROJECT_DIR$/mix.exs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix.lock" beforeDir="false" afterPath="$PROJECT_DIR$/mix.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/re_jobs_board.iml" beforeDir="false" afterPath="$PROJECT_DIR$/re_jobs_board.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/_build/dev/lib/connection/" />
     <ignored path="$PROJECT_DIR$/_build/dev/lib/cowboy/" />
@@ -49,55 +57,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/job.html.eex">
+        <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/index.html.eex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web/router.ex">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web/controllers/api_controller.ex">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="23" column="73" selection-start-line="23" selection-start-column="73" selection-end-line="23" selection-end-column="73" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="102">
+              <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/assets/js/job.js">
+        <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/job.html.eex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/jobs.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-326">
-              <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+            <state relative-caret-position="102">
+              <caret line="6" column="56" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -114,9 +86,14 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>class</find>
+      <find>ServerHelper</find>
+      <find>GenServer.whereis(:board1)</find>
+      <find>get_server_from_id</find>
     </findStrings>
     <replaceStrings>
       <replace>className</replace>
+      <replace>ServerHelper.get</replace>
+      <replace>ServerHelper.get_server_from_id(board_id)</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -127,22 +104,29 @@
       <list>
         <option value="$PROJECT_DIR$/assets/.babelrc" />
         <option value="$PROJECT_DIR$/lib/re_jobs_board_web/views/api_view.ex" />
-        <option value="$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/index.html.eex" />
-        <option value="$PROJECT_DIR$/lib/re_jobs_board_web/templates/layout/app.html.eex" />
-        <option value="$PROJECT_DIR$/lib/re_jobs_board_web/controllers/page_controller.ex" />
         <option value="$PROJECT_DIR$/assets/css/app.css" />
-        <option value="$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/job.html.eex" />
-        <option value="$PROJECT_DIR$/lib/re_jobs_board_web/router.ex" />
         <option value="$PROJECT_DIR$/assets/js/react.js" />
-        <option value="$PROJECT_DIR$/lib/re_jobs_board_web/controllers/api_controller.ex" />
         <option value="$PROJECT_DIR$/assets/js/hello.js" />
+        <option value="$PROJECT_DIR$/lib/re_jobs_board/utils.ex" />
+        <option value="$PROJECT_DIR$/lib/re_jobs_board_web/templates/layout/app.html.eex" />
+        <option value="$PROJECT_DIR$/lib/re_jobs_board/Jobs/job.ex" />
+        <option value="$PROJECT_DIR$/lib/re_jobs_board/Boards/board.ex" />
+        <option value="$PROJECT_DIR$/lib/re_jobs_board_web/controllers/api_controller.ex" />
         <option value="$PROJECT_DIR$/assets/js/app.js" />
-        <option value="$PROJECT_DIR$/assets/js/jobs.js" />
         <option value="$PROJECT_DIR$/assets/js/job.js" />
+        <option value="$PROJECT_DIR$/lib/re_jobs_board_web/router.ex" />
+        <option value="$PROJECT_DIR$/assets/js/jobs.js" />
+        <option value="$PROJECT_DIR$/lib/re_jobs_board_web/controllers/page_controller.ex" />
+        <option value="$PROJECT_DIR$/mix.exs" />
+        <option value="$PROJECT_DIR$/lib/re_jobs_board/Boards/server.ex" />
+        <option value="$PROJECT_DIR$/lib/re_jobs_board/application.ex" />
+        <option value="$PROJECT_DIR$/lib/re_jobs_board/Boards/server_helper.ex" />
+        <option value="$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/index.html.eex" />
+        <option value="$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/job.html.eex" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1680" />
     <option name="height" value="976" />
@@ -155,6 +139,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -165,37 +151,26 @@
             <path>
               <item name="re_jobs_board" type="b2602c69:ProjectViewProjectNode" />
               <item name="re_jobs_board" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="re_jobs_board" type="b2602c69:ProjectViewProjectNode" />
-              <item name="re_jobs_board" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="re_jobs_board" type="b2602c69:ProjectViewProjectNode" />
-              <item name="re_jobs_board" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="re_jobs_board" type="b2602c69:ProjectViewProjectNode" />
               <item name="re_jobs_board" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="re_jobs_board" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="re_jobs_board" type="b2602c69:ProjectViewProjectNode" />
+              <item name="re_jobs_board" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="re_jobs_board" type="462c0819:PsiDirectoryNode" />
+              <item name="Boards" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="re_jobs_board" type="b2602c69:ProjectViewProjectNode" />
               <item name="re_jobs_board" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
               <item name="re_jobs_board_web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="re_jobs_board" type="b2602c69:ProjectViewProjectNode" />
-              <item name="re_jobs_board" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="re_jobs_board_web" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="re_jobs_board" type="b2602c69:ProjectViewProjectNode" />
@@ -203,14 +178,6 @@
               <item name="lib" type="462c0819:PsiDirectoryNode" />
               <item name="re_jobs_board_web" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="re_jobs_board" type="b2602c69:ProjectViewProjectNode" />
-              <item name="re_jobs_board" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="re_jobs_board_web" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="re_jobs_board" type="b2602c69:ProjectViewProjectNode" />
@@ -220,19 +187,10 @@
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="page" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="re_jobs_board" type="b2602c69:ProjectViewProjectNode" />
-              <item name="re_jobs_board" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="re_jobs_board_web" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -257,7 +215,7 @@
     </option>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="976" extended-state="0" />
+    <frame x="0" y="23" width="1680" height="976" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24954791" />
@@ -312,17 +270,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web/controllers/page_controller.ex">
+    <entry file="file://$PROJECT_DIR$/assets/node_modules/asn1.js/lib/asn1/api.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/react.js" />
+    <entry file="file://$PROJECT_DIR$/assets/js/hello.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+        <state>
+          <caret selection-end-column="26" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-813" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board.ex">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web/templates/layout/app.html.eex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+        <state relative-caret-position="217">
+          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board/utils.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board/Boards/board.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -333,63 +317,94 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/node_modules/asn1.js/lib/asn1/api.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/index.html.eex">
+    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board/Jobs/job.ex">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/react.js" />
-    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/job.html.eex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web/router.ex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web/controllers/api_controller.ex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="23" column="73" selection-start-line="23" selection-start-column="73" selection-end-line="23" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/hello.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="26" />
+        <state relative-caret-position="101">
+          <caret line="7" column="144" selection-start-line="7" selection-start-column="144" selection-end-line="7" selection-end-column="144" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/jobs.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-326">
-          <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+        <state relative-caret-position="68">
+          <caret line="4" column="71" selection-start-line="4" selection-start-column="71" selection-end-line="4" selection-end-column="71" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/job.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        <state relative-caret-position="72">
+          <caret line="27" column="95" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mix.exs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="22" column="58" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web/controllers/page_controller.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="44" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web/controllers/api_controller.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web/router.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board/application.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board/Boards/server_helper.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board/Boards/server.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/index.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="46" selection-start-line="6" selection-start-column="46" selection-end-line="6" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/job.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="56" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
         </state>
       </provider>
     </entry>

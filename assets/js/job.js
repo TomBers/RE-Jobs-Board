@@ -2,10 +2,14 @@ import React from "react";
 
 class JobPosting extends React.Component {
  render() {
+    const tags = this.props.job.tags.join(",");
+    const d = new Date(this.props.job.posted);
     return  (
         <div className="flex-item">
-            {this.props.job.name} <br />
-            {this.props.job.description} <br />
+            <strong>Title: {this.props.job.name}</strong> <br />
+            Description: {this.props.job.description} <br />
+            Tags: {tags} <br />
+            Posted: {d.toString()}
         </div>
         )
     }
@@ -21,7 +25,7 @@ export default class Job extends React.Component {
      };
   }
       componentDidMount() {
-        fetch("http://localhost:4000/api/job/" + this.props.id)
+        fetch("http://localhost:4000/api/board/" + this.props.boardId + "/job/" + this.props.id)
           .then(res => res.json())
           .then(
             (result) => {

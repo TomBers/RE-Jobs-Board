@@ -2,7 +2,7 @@ import React from "react";
 
 class JobBlock extends React.Component {
  render() {
-    const url = "http://localhost:4000/job/" + this.props.job.id
+    const url = "http://localhost:4000/board/"+ this.props.boardId + "/job/" + this.props.job.id
     return(
         <div className="flex-item">
             {this.props.job.name} <br />
@@ -23,7 +23,7 @@ export default class Jobs extends React.Component {
      };
   }
       componentDidMount() {
-        fetch("http://localhost:4000/api/")
+        fetch("http://localhost:4000/api/board/" + this.props.boardId)
           .then(res => res.json())
           .then(
             (result) => {
@@ -55,7 +55,7 @@ export default class Jobs extends React.Component {
           return (
           <div className="flex-container">
               {items.map(job => (
-                  <JobBlock job={job} key={job.name} />
+                  <JobBlock job={job} boardId={this.props.boardId} key={job.name} />
               ))}
               </div>
           );

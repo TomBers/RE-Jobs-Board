@@ -1,7 +1,9 @@
 <div id="app"></div>
+<%= link("Add Job", to: "/add/job/#{@board_id}") %>
+
 
     <script>
         document.addEventListener("DOMContentLoaded", function(event) {
-        window.renderJobs();
+        window.renderJobs("<%= @board_id %>");
         });
     </script>

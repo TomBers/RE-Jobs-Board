@@ -4,6 +4,6 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function(event) {
-        window.renderJob(<%= @job %>);
+        window.renderJob(<%= @job %>, "<%= @board_id %>");
         });
     </script>
