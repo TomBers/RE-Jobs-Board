@@ -20,7 +20,7 @@ defmodule ReJobsBoard.MixProject do
   def application do
     [
       mod: {ReJobsBoard.Application, []},
-      extra_applications: [:logger, :runtime_tools, :gproc]
+      extra_applications: [:logger, :runtime_tools, :gproc, :faker]
     ]
   end
 
@@ -43,7 +43,8 @@ defmodule ReJobsBoard.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:gproc, "~> 0.5.0"}
+      {:gproc, "~> 0.5.0"},
+      {:faker, "~> 0.12"}
     ]
   end
 

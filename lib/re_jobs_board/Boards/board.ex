@@ -1,10 +1,12 @@
 defmodule Board do
   @derive {Jason.Encoder, only: [:entries]}
 
-  defstruct auto_id: 1, entries: %{}
+  defstruct auto_id: 1, entries: %{}, name: ""
 
 
   def new(), do: %Board{}
+
+  def new(name), do: %Board{name: name}
 
   def new(entries \\ []) do
     Enum.reduce(

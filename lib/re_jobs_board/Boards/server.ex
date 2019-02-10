@@ -1,16 +1,29 @@
 defmodule BoardServer do
   use GenServer
 
-  def init(_) do
-    {:ok, Board.new()}
+  def init(params) do
+    {:ok, params}
   end
 
   def start(name) do
-    GenServer.start(__MODULE__, Board.new(), name: via_tuple(name))
+    GenServer.start(__MODULE__, get_board(name), name: via_tuple(name))
+  end
+
+  def get_board(name) do
+    case File.read("./boards/#{name}") do
+      {:ok, contents} -> :erlang.binary_to_term(contents)
+      _ -> Board.new(name)
+    end
+  end
+
+  def set_board(board) do
+    File.write!("./boards/#{board.name}", :erlang.term_to_binary(board))
   end
 
   def handle_cast({:add_job, job}, state) do
-    {:noreply, Board.add_entry(state, job)}
+    board = Board.add_entry(state, job)
+    set_board(board)
+    {:noreply, board}
   end
 
   def handle_cast({:remove_job, job}, state) do
