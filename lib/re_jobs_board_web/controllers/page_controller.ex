@@ -9,6 +9,12 @@ defmodule ReJobsBoardWeb.PageController do
     render(conn, "job.html", board_id: board_id, job: id)
   end
 
+  def crash(conn, %{"board_id" => board_id}) do
+    pid = ServerHelper.get_server_from_id(board_id)
+    GenServer.cast(pid, :crash)
+    conn |> redirect(to: "/board/#{board_id}")
+  end
+
   def add_random_job(conn, %{"board_id" => board_id}) do
     pid = ServerHelper.get_server_from_id(board_id)
     GenServer.cast(pid, {:add_job, Job.new()})

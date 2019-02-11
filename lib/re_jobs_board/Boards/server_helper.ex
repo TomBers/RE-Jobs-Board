@@ -5,8 +5,9 @@ defmodule ServerHelper do
   end
 
   defp return_pid(id, :undefined) do
-    {:ok, pid} = BoardServer.start(id)
-    pid
+    {:ok, server} = DynamicSupervisor.start_child(ServerSupervisor, {BoardServer, id})
+    IO.inspect(server)
+    server
   end
 
   defp return_pid(id, pid) do

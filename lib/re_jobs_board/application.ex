@@ -12,6 +12,7 @@ defmodule ReJobsBoard.Application do
       ReJobsBoard.Repo,
       # Start the endpoint when the application starts
       ReJobsBoardWeb.Endpoint,
+      {DynamicSupervisor, strategy: :one_for_one, name: ServerSupervisor}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
@@ -26,4 +27,5 @@ defmodule ReJobsBoard.Application do
     ReJobsBoardWeb.Endpoint.config_change(changed, removed)
     :ok
   end
+
 end

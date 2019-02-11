@@ -17,6 +17,7 @@ defmodule ReJobsBoardWeb.Router do
     pipe_through :browser
 
     get "/board/:board_id", PageController, :board
+    get "/crash/:board_id", PageController, :crash
     get "/board/:board_id/job/:id", PageController, :job
     get "/add/job/:board_id", PageController, :add_random_job
   end

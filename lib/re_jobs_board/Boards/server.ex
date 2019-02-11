@@ -5,7 +5,8 @@ defmodule BoardServer do
     {:ok, params}
   end
 
-  def start(name) do
+  def start_link(name) do
+    IO.inspect(name)
     GenServer.start(__MODULE__, get_board(name), name: via_tuple(name))
   end
 
@@ -24,6 +25,11 @@ defmodule BoardServer do
     board = Board.add_entry(state, job)
     set_board(board)
     {:noreply, board}
+  end
+
+  def handle_cast(:crash, state) do
+    a = 10 / 0
+    {:noreply, []}
   end
 
   def handle_cast({:remove_job, job}, state) do
