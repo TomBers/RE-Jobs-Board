@@ -9,7 +9,7 @@ defmodule ReJobsBoard.Application do
     # List all child processes to be supervised
     children = [
       # Start the Ecto repository
-      ReJobsBoard.Repo,
+      # ReJobsBoard.Repo,
       # Start the endpoint when the application starts
       ReJobsBoardWeb.Endpoint,
       {DynamicSupervisor, strategy: :one_for_one, name: ServerSupervisor}

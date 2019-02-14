@@ -7,6 +7,7 @@ class JobBlock extends React.Component {
         <div className="flex-item">
             {this.props.job.name} <br />
             {this.props.job.description} <br />
+            {this.props.job.website} <br />
             <a href={url}>More</a>
         </div>
         )

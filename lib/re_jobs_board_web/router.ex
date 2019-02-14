@@ -16,6 +16,7 @@ defmodule ReJobsBoardWeb.Router do
   scope "/", ReJobsBoardWeb do
     pipe_through :browser
 
+    get "/", PageController, :index
     get "/board/:board_id", PageController, :board
     get "/crash/:board_id", PageController, :crash
     get "/board/:board_id/job/:id", PageController, :job

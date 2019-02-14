@@ -1,8 +1,12 @@
 defmodule ReJobsBoardWeb.PageController do
   use ReJobsBoardWeb, :controller
 
+  def index(conn, _params) do
+    render conn, "index.html"
+  end
+
   def board(conn, %{"board_id" => id}) do
-    render(conn, "index.html", board_id: id)
+    render(conn, "board.html", board_id: id)
   end
 
   def job(conn, %{"board_id" => board_id, "id" => id}) do
