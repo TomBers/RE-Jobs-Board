@@ -9,8 +9,8 @@ import Job from "./job.js"
 
 var mountNode = document.getElementById("app");
 
-function renderJobs(boardId) {
-    ReactDOM.render(<Jobs boardId={boardId} />, mountNode);
+function renderJobs(boardId, criteria, term) {
+    ReactDOM.render(<Jobs boardId={boardId} criteria={criteria} term={term} />, mountNode);
 }
 
 function renderJob(id, boardId) {
