@@ -16,6 +16,16 @@ defmodule ReJobsBoardWeb.APIController do
       |> Enum.map(fn({_id, entry}) -> entry end)
   end
 
+  def match_criteria(entry, "posted", term) do
+    {:ok, dt, _} = DateTime.from_iso8601(term)
+    limit = DateTime.to_date(dt)
+    case Date.compare(limit, entry.posted) do
+      :gt -> false
+      :lt -> true
+      _ -> true
+    end
+  end
+
   def match_criteria(entry, criteria, term) do
     val = Map.get(entry, String.to_atom(criteria))
     does_match(val, term)
@@ -27,6 +37,10 @@ defmodule ReJobsBoardWeb.APIController do
 
   def does_match(value, term) when is_map(value) do
     Map.get(value, value.__struct__.match_criteria()) == term
+  end
+
+  def does_match(value, term) do
+    value == term
   end
 
   def job(conn, %{"id" => id, "board_id" => board_id}) do
