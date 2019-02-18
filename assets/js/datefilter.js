@@ -14,7 +14,6 @@ export default class DateFilter extends React.Component {
             <RenderLinks board={this.props.boardId} category={"posted"} value={getPastDate(7)} text={"Last week"} />
             <RenderLinks board={this.props.boardId} category={"posted"} value={getPastDate(14)} text={"Last 2 weeks"} />
             <RenderLinks board={this.props.boardId} category={"posted"} value={getPastDate(31)} text={"Last month"} />
-
          </div>)
     }
 }

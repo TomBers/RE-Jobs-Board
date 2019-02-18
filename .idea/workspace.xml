@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58a2d9a6-90a7-40de-a0d0-93b0b11db648" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/job.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/job.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/re_jobs_board_web/controllers/api_controller.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/re_jobs_board_web/controllers/api_controller.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/board.html.eex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/board.html.eex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/datefilter.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/datefilter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/re_jobs_board/Jobs/job.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/re_jobs_board/Jobs/job.ex" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/_build/dev/lib/connection/" />
     <ignored path="$PROJECT_DIR$/_build/dev/lib/cowboy/" />
@@ -74,20 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/re_jobs_board/Jobs/job.ex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="67" selection-start-line="2" selection-start-column="67" selection-end-line="2" selection-end-column="73" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/assets/js/datefilter.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="113" selection-start-line="15" selection-start-column="113" selection-end-line="15" selection-end-column="113" />
+            <state relative-caret-position="102">
+              <caret line="6" column="178" selection-start-line="6" selection-start-column="178" selection-end-line="6" selection-end-column="178" />
             </state>
           </provider>
         </entry>
@@ -137,7 +125,6 @@
         <option value="$PROJECT_DIR$/lib/re_jobs_board/Boards/server.ex" />
         <option value="$PROJECT_DIR$/lib/re_jobs_board/application.ex" />
         <option value="$PROJECT_DIR$/lib/re_jobs_board/Boards/server_helper.ex" />
-        <option value="$PROJECT_DIR$/lib/re_jobs_board/Jobs/job.ex" />
         <option value="$PROJECT_DIR$/lib/re_jobs_board_web/controllers/page_controller.ex" />
         <option value="$PROJECT_DIR$/assets/js/jobs.js" />
         <option value="$PROJECT_DIR$/lib/re_jobs_board_web/router.ex" />
@@ -147,6 +134,7 @@
         <option value="$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/board.html.eex" />
         <option value="$PROJECT_DIR$/lib/re_jobs_board_web/controllers/api_controller.ex" />
         <option value="$PROJECT_DIR$/assets/js/datefilter.js" />
+        <option value="$PROJECT_DIR$/lib/re_jobs_board/Jobs/job.ex" />
       </list>
     </option>
   </component>
@@ -430,17 +418,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/board.html.eex">
+    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web/controllers/api_controller.ex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board/Jobs/job.ex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="67" selection-start-line="2" selection-start-column="67" selection-end-line="2" selection-end-column="73" />
+        <state relative-caret-position="157">
+          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -451,17 +432,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web/controllers/api_controller.ex">
+    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/board.html.eex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+        <state relative-caret-position="119">
+          <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/datefilter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="113" selection-start-line="15" selection-start-column="113" selection-end-line="15" selection-end-column="113" />
+        <state relative-caret-position="201">
+          <caret line="15" column="118" selection-start-line="15" selection-start-column="118" selection-end-line="15" selection-end-column="118" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board/Jobs/job.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="178" selection-start-line="6" selection-start-column="178" selection-end-line="6" selection-end-column="178" />
         </state>
       </provider>
     </entry>
