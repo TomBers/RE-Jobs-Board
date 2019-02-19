@@ -1,15 +1,26 @@
 import React from "react";
 
+
+
+class Link extends React.Component {
+    render() {
+        const tag = this.props.value
+        return (<span><a href={`http://localhost:4000/board/${this.props.board}/${this.props.category}/${tag}`}>{this.props.text}</a> </span>)
+    }
+}
+
 class JobPosting extends React.Component {
+
  render() {
-    const tags = this.props.job.tags.join(",");
+    const tags = this.props.job.tags.map((tag) => <Link value={tag} category={"tags"} text={tag} board={this.props.board} key={tag}/>)
     const d = new Date(this.props.job.posted);
     return  (
         <div className="flex-item">
             <strong>Title: {this.props.job.name}</strong> <br />
             Description: {this.props.job.description} <br />
             Tags: {tags} <br />
-            Posted: {d.toString()}
+            Posted: {d.toString()} <br />
+            <Link value={this.props.job.owner.name} category={"owner"} text={this.props.job.owner.name} board={this.props.board} />
         </div>
         )
     }
@@ -25,7 +36,7 @@ export default class Job extends React.Component {
      };
   }
       componentDidMount() {
-        fetch("http://localhost:4000/api/board/" + this.props.boardId + "/job/" + this.props.id)
+        fetch("http://localhost:4000/api/job/" + this.props.id + "/board/" + this.props.boardId)
           .then(res => res.json())
           .then(
             (result) => {
@@ -56,7 +67,7 @@ export default class Job extends React.Component {
         } else {
           return (
           <div className="flex-container">
-             <JobPosting job={job} key={job.name} />
+             <JobPosting job={job} board={this.props.boardId} key={job.name} />
           </div>
           );
         }

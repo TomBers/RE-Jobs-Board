@@ -6,10 +6,14 @@ defmodule ReJobsBoardWeb.PageController do
   end
 
   def board(conn, %{"board_id" => id}) do
-    render(conn, "board.html", board_id: id)
+    render(conn, "board.html", board_id: id, criteria: "n", term: "a")
   end
 
-  def job(conn, %{"board_id" => board_id, "id" => id}) do
+  def board_filter(conn, %{"board_id" => id, "criteria" => criteria, "term" => term}) do
+    render(conn, "board.html", board_id: id, criteria: criteria, term: term)
+  end
+
+  def job(conn, %{"id" => id, "board_id" => board_id}) do
     render(conn, "job.html", board_id: board_id, job: id)
   end
 

@@ -18,8 +18,9 @@ defmodule ReJobsBoardWeb.Router do
 
     get "/", PageController, :index
     get "/board/:board_id", PageController, :board
+    get "/board/:board_id/:criteria/:term", PageController, :board_filter
     get "/crash/:board_id", PageController, :crash
-    get "/board/:board_id/job/:id", PageController, :job
+    get "/job/:id/board/:board_id", PageController, :job
     get "/add/job/:board_id", PageController, :add_random_job
   end
 
@@ -27,7 +28,7 @@ defmodule ReJobsBoardWeb.Router do
    scope "/api", ReJobsBoardWeb do
      pipe_through :api
 
-     get "/board/:board_id", APIController, :index
-     get "/board/:board_id/job/:id", APIController, :job
+     get "/board/:board_id/:criteria/:term", APIController, :index
+     get "/job/:id/board/:board_id", APIController, :job
    end
 end

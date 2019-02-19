@@ -1,9 +1,11 @@
+<div id="date"></div>
 <div id="app"></div>
 <%= link("Add Job", to: "/add/job/#{@board_id}") %>
 
 
     <script>
         document.addEventListener("DOMContentLoaded", function(event) {
-        window.renderJobs("<%= @board_id %>");
+        window.renderDateFilter("<%= @board_id %>");
+        window.renderJobs("<%= @board_id %>", "<%= @criteria %>", "<%= @term %>");
         });
     </script>
