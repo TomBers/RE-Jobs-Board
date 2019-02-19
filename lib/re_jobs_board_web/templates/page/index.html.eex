@@ -5,10 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Radical Engineers</title>
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="./css/basscss.min.css">
-    <link rel="stylesheet" href="./css/basscss.css">
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/button.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="assets/css/partials/banner.css">
     <meta name="description" content="We build teams of hackers and makers and pair them with radical organisations. We help organisations find technical solutions to specific problems, or assess what technologies and infrastructures may help them be more effective in their endeavours.">
     <meta name="viewport" content="width=device-width">
     <meta property="og:url"                content="http://radicalengineers.com/index.html" />
@@ -19,17 +17,18 @@
   </head>
 
   <body>
-
-  <div class="bg-start">
-    <header class="container px0 py4">
-      <div class="clearfix mxn2">
-       <div class="col-10 sm-col-10 px2 py2 mx-auto">
-          <h1 class="h1 responsive-h1 caps name py0" ><span>Radical <br>Engineers</span></h1>
+<!--     <div class="banner" style="background-image: linear-gradient(to top,rgba(207, 2, 121, 0.95),rgba(227, 2, 133, 0.95)), url('images/lion_2.png');">
+        <div class="banner-content">
+          <h1 class="banner">Radical <br> Engineers</h1>
         </div>
-      </div>
-    </header>
+    </div> -->
+    <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
+  <div class="banner-content">
+    <h1>Le Wagon Berlin</h1>
+    <p>Learn to code with us in Berlin</p>
+    <a class="btn btn-primary btn-lg">Start now</a>
   </div>
-
-
-
+</div>
   </body>
+
+</html>
