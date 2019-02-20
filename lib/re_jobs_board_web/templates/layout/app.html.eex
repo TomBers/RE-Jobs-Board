@@ -18,8 +18,15 @@
   <body>
     <div class="banner" style="background-image: linear-gradient(to top,rgba(207, 2, 121, 0.95),rgba(227, 2, 133, 0.95)), url('images/lion_2.png');">
       <div class="banner-content">
-        <h1 class="banner">Radical <br> Engineers</h1>
+        <h1>Radical <br> Engineers</h1>
       </div>
+    </div>
+
+    <hr class="haar">
+
+    <div class = "bg-dark">
+      <h1>new block</h1>
+
     </div>
   </body>
 </html>

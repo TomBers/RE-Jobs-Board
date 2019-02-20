@@ -17,18 +17,12 @@
   </head>
 
   <body>
-<!--     <div class="banner" style="background-image: linear-gradient(to top,rgba(207, 2, 121, 0.95),rgba(227, 2, 133, 0.95)), url('images/lion_2.png');">
+
+      <div class="banner" style="background-image: linear-gradient(to top,rgba(207, 2, 121, 0.95),rgba(227, 2, 133, 0.95)), url('images/lion_2.png');">
         <div class="banner-content">
           <h1 class="banner">Radical <br> Engineers</h1>
         </div>
-    </div> -->
-    <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
-  <div class="banner-content">
-    <h1>Le Wagon Berlin</h1>
-    <p>Learn to code with us in Berlin</p>
-    <a class="btn btn-primary btn-lg">Start now</a>
-  </div>
-</div>
+    </div>
   </body>
 
 </html>
