@@ -1,5 +1,5 @@
 import React from "react";
-
+import ReactQuill from 'react-quill';
 
 
 class Link extends React.Component {
@@ -9,8 +9,8 @@ class Link extends React.Component {
     }
 }
 
-class JobPosting extends React.Component {
 
+class JobPosting extends React.Component {
  render() {
     const tags = this.props.job.tags.map((tag) => <Link value={tag} category={"tags"} text={tag} board={this.props.board} key={tag}/>)
     const d = new Date(this.props.job.posted);
@@ -20,11 +20,15 @@ class JobPosting extends React.Component {
             Description: {this.props.job.description} <br />
             Tags: {tags} <br />
             Posted: {d.toString()} <br />
+            <ReactQuill value={this.props.job.ops} theme={null} readOnly={true} /><br />
             <Link value={this.props.job.owner.name} category={"owner"} text={this.props.job.owner.name} board={this.props.board} />
         </div>
         )
     }
 }
+
+
+
 
 export default class Job extends React.Component {
     constructor(props) {

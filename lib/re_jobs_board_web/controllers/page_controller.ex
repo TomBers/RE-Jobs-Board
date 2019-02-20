@@ -25,8 +25,13 @@ defmodule ReJobsBoardWeb.PageController do
 
   def add_random_job(conn, %{"board_id" => board_id}) do
     pid = ServerHelper.get_server_from_id(board_id)
-    GenServer.cast(pid, {:add_job, Job.new()})
-    conn |> redirect(to: "/board/#{board_id}")
+    board = GenServer.call(pid, :new_job)
+    id = board.auto_id - 1
+    conn |> redirect(to: "/edit/job/#{id}/board/#{board_id}")
+  end
+
+  def edit_job(conn, %{"id" => id, "board_id" => board_id}) do
+    render(conn, "edit_job.html", board_id: board_id, job_id: id)
   end
 
 end

@@ -34,8 +34,16 @@ defmodule Board do
     put_in(board.entries[id].name, new_name)
   end
 
+  def update_ops(board, id, new_ops) do
+    put_in(board.entries[id].ops, new_ops)
+  end
+
   def update_description(board, id, new_description) do
     put_in(board.entries[id].description, new_description)
+  end
+
+  def update_job(board, id, new_job) do
+    put_in(board.entries[id], new_job)
   end
 
   def update_entry(board, %{} = new_entry) do
