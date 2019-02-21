@@ -22,6 +22,7 @@ defmodule ReJobsBoardWeb.Router do
     get "/crash/:board_id", PageController, :crash
     get "/job/:id/board/:board_id", PageController, :job
     get "/add/job/:board_id", PageController, :add_random_job
+    get "/edit/job/:id/board/:board_id", PageController, :edit_job
   end
 
   # Other scopes may use custom stacks.
@@ -30,5 +31,6 @@ defmodule ReJobsBoardWeb.Router do
 
      get "/board/:board_id/:criteria/:term", APIController, :index
      get "/job/:id/board/:board_id", APIController, :job
+     post"/make/job/:id/board/:board_id", APIController, :make_job
    end
 end

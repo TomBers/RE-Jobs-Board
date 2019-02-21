@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="/css/app.css">
     <meta name="description" content="We build teams of hackers and makers and pair them with radical organisations. We help organisations find technical solutions to specific problems, or assess what technologies and infrastructures may help them be more effective in their endeavours.">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:url"                content="http://radicalengineers.com/index.html" />
     <meta property="og:type"               content="article" />
     <meta property="og:title"              content="Radical Engineers" />
@@ -27,6 +27,13 @@
     <div class = "bg-dark">
       <h1>new block</h1>
 
+    <main role="main" class="container">
+      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+        <%= render @view_module, @view_template, assigns %>
+    </main>
+      <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
     </div>
+
   </body>
 </html>

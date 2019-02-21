@@ -26,13 +26,11 @@ body {
 .banner {
   color: white;
   text-align: left;
-  height: 70vh;
-  /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: block;
   align-items: center;
   justify-content: center;
-  padding-left: 12em;
+  padding-left: 4em;
   padding-top: .5em;
 }
 
@@ -44,7 +42,8 @@ body {
   letter-spacing: .2em;
   font-family: 'Helvetica Neue', Helvetica, sans-serif;
   display: block;
-
+  margin: 0em;
+  padding: 1em;
 }
 .banner p {
   font-size: 25px;
@@ -84,4 +83,27 @@ hr.haar {
   color: #300124;
   background-color: #F1F1F1;
   margin-top: -22px;
+}
+
+/* screen size */
+@media (max-width: 1044px) {
+.banner h1 {
+  font-size: 75px;
+  }
+}
+
+@media (max-width: 750px) {
+.banner {
+  padding-left: 2em;
+}
+
+.banner h1 {
+  font-size: 60px;
+  }
+}
+
+@media (max-width: 750px) {
+.banner h1 {
+  font-size: 60px;
+  }
 }

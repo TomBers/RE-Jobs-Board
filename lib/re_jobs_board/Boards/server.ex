@@ -27,6 +27,12 @@ defmodule BoardServer do
     {:noreply, board}
   end
 
+  def handle_cast({:update_job, id, ops}, state) do
+    board = Board.update_ops(state, id, ops)
+    set_board(board)
+    {:noreply, board}
+  end
+
   def handle_cast(:crash, state) do
     a = 10 / 0
     {:noreply, []}
@@ -42,6 +48,12 @@ defmodule BoardServer do
 
   def handle_call({:get_item, id}, _, state) do
     {:reply, state.entries[id], state}
+  end
+
+  def handle_call(:new_job, _, state) do
+    board = Board.add_entry(state, Job.new())
+    set_board(board)
+    {:reply, board, board}
   end
 
   defp via_tuple(board) do

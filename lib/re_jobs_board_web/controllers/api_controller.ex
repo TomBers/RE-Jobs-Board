@@ -48,4 +48,11 @@ defmodule ReJobsBoardWeb.APIController do
     json conn, GenServer.call(pid, {:get_item, String.to_integer(id)})
   end
 
+  def make_job(conn, %{"id" => id, "board_id" => board_id, "ops" => ops}) do
+
+    pid = ServerHelper.get_server_from_id(board_id)
+    GenServer.cast(pid, {:update_job, String.to_integer(id), ops})
+    json conn, []
+  end
+
 end
