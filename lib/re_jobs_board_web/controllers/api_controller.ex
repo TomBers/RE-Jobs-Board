@@ -48,10 +48,16 @@ defmodule ReJobsBoardWeb.APIController do
     json conn, GenServer.call(pid, {:get_item, String.to_integer(id)})
   end
 
-  def make_job(conn, %{"id" => id, "board_id" => board_id, "ops" => ops}) do
+  def make_job(conn, params) do
+     board_id = params["board_id"]
+     id = params["id"]
+     form_values =
+       params
+        |> Enum.filter(fn({key, value}) -> key not in ["board_id", "id"] end)
 
     pid = ServerHelper.get_server_from_id(board_id)
-    GenServer.cast(pid, {:update_job, String.to_integer(id), ops})
+
+    GenServer.cast(pid, {:update_job, String.to_integer(id), form_values})
     json conn, []
   end
 

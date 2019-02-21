@@ -1,4 +1,5 @@
 defmodule JobField do
+  use MakeEnumerable
 
   @derive {Jason.Encoder, only: [:value, :type, :options]}
   defstruct value: "", type: "", options: []

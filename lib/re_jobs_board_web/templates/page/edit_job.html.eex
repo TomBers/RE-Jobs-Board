@@ -30,9 +30,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 document.getElementById("saveButton").addEventListener("click", function(){
     var delta = quill.getContents();
-    var data = JSON.stringify(delta);
+    var data = {
+        "name": document.getElementById('name').value,
+        "bob": document.getElementById('bob').value
+        }
+//"ops": delta,
     const url = "http://localhost:4000/api/make/job/<%= @job_id %>/board/<%= @board_id %>"
-    window.sendToServer(url, data)
+    console.log(data);
+    window.sendToServer(url, JSON.stringify(data))
 });
 
 

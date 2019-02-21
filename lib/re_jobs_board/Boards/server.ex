@@ -27,8 +27,10 @@ defmodule BoardServer do
     {:noreply, board}
   end
 
-  def handle_cast({:update_job, id, ops}, state) do
-    board = Board.update_ops(state, id, ops)
+  def handle_cast({:update_job, id, params}, state) do
+    new_job = Job.create_from_params(state.entries[id], params)
+
+    board = Board.update_job(state, id, new_job)
     set_board(board)
     {:noreply, board}
   end
