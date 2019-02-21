@@ -1,13 +1,19 @@
 import React from "react";
 
 class JobBlock extends React.Component {
+  isObject(obj) {
+    return obj === Object(obj);
+  }
+  getMapValue(key) {
+    return this.isObject(this.props.job[key]) ? this.props.job[key].value : this.props.job[key]
+  }
  render() {
-    const url = "http://localhost:4000/job/" + this.props.job.id + "/board/"+ this.props.boardId
+   const job = this.props.job
+   const url = "http://localhost:4000/job/" + job.id + "/board/"+ this.props.boardId
+   const objContext = this;
     return(
         <div className="flex-item">
-            {this.props.job.name} <br />
-            {this.props.job.description} <br />
-            {this.props.job.website} <br />
+            {Object.keys(job).map((key, index) => key !== "id" ? <div key={key}>{key} : {objContext.getMapValue(key)}</div> : null)}
             <a href={url}>More</a>
         </div>
         )
@@ -55,9 +61,7 @@ export default class Jobs extends React.Component {
         } else {
           return (
           <div className="flex-container">
-              {items.map(job => (
-                  <JobBlock job={job} boardId={this.props.boardId} key={job.name} />
-              ))}
+              {items.map((job, indx) => <JobBlock job={job} boardId={this.props.boardId} key={indx} />)}
               </div>
           );
         }

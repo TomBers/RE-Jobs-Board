@@ -37,6 +37,7 @@ function loadContent(jobId, boardId, quill) {
 }
 
 function renderResponse(data, quill) {
+  console.log(data);
   var formNode = document.getElementById("form");
   _.each(data, (v, k) => makeFormElement(formNode, v, k));
   quill.setContents(data.ops)
@@ -44,27 +45,81 @@ function renderResponse(data, quill) {
 
 function makeFormElement(node, val, key) {
   if (typeof val === 'string' || val instanceof String) {
-    var div = document.createElement('div');
-    var label = document.createElement('label');
-    label.setAttribute("for", key);
-    label.innerHTML = key
+    renderTextInput(node, val, key);
+  } else if (isObject(val)) {
+      if (val.type === "TEXT") {
+          renderTextInput(node, val.value, key);
+      } else if (val.type === "RADIO") {
+          renderRadioInput(node, val.value, val.options, key);
+      } else if (val.type === "DATE") {
+          renderDateInput(node, val.value, val.options, key);
+      }
 
-    var ele = document.createElement('input');
-    ele.setAttribute('id', key);
-    ele.setAttribute('value', val);
-
-    div.appendChild(label);
-    div.appendChild(ele);
-    node.appendChild(div);
   }
 }
 
+function renderTextInput(node, val, key) {
+  var div = document.createElement('div');
+  var label = document.createElement('label');
+  label.setAttribute("for", key);
+  label.innerHTML = key
 
-function sendToServer() {
-    const url = "http://localhost:4000/api/make/job/<%= @job_id %>/board/<%= @board_id %>"
-    var delta = quill.getContents();
-    var data = JSON.stringify(delta);
+  var ele = document.createElement('input');
+  ele.setAttribute('id', key);
+  ele.setAttribute('value', val);
 
+  div.appendChild(label);
+  div.appendChild(ele);
+  node.appendChild(div);
+}
+
+function renderDateInput(node, val, key) {
+  var div = document.createElement('div');
+  var label = document.createElement('label');
+  label.setAttribute("for", key);
+  label.innerHTML = key
+
+  var ele = document.createElement('input');
+  ele.setAttribute('type', 'date')
+  ele.setAttribute('id', key);
+  ele.setAttribute('value', val);
+
+  div.appendChild(label);
+  div.appendChild(ele);
+  node.appendChild(div);
+}
+
+
+
+function renderRadioInput(node, val, options, key) {
+  var div = document.createElement('p');
+
+  _.each(options, (v) => {
+    var label = document.createElement('label');
+    var ele = document.createElement('input');
+    ele.setAttribute('value', v);
+    ele.setAttribute('name', key);
+    ele.setAttribute('type', 'radio');
+    if (val === v) {
+      ele.setAttribute('checked', true);
+    }
+    label.appendChild(ele);
+    var txt = document.createElement('span');
+    txt.innerHTML = v;
+    label.appendChild(txt);
+    div.appendChild(label);
+  })
+
+  node.appendChild(div);
+}
+
+
+function isObject(obj) {
+  return obj === Object(obj);
+}
+
+
+function sendToServer(url, data) {
     fetch(url, {
           method: "POST",
           mode: "cors",

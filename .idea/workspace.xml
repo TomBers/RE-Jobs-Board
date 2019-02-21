@@ -3,10 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="58a2d9a6-90a7-40de-a0d0-93b0b11db648" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/job.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/job.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/jobs.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/jobs.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/re_jobs_board/Jobs/job.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/re_jobs_board/Jobs/job.ex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/re_jobs_board_web/templates/layout/app.html.eex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/re_jobs_board_web/templates/layout/app.html.eex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/edit_job.html.eex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/edit_job.html.eex" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/_build/dev/lib/connection/" />
@@ -50,23 +51,45 @@
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/edit_job.html.eex">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/re_jobs_board/Jobs/job.ex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="47">
-              <caret line="3" column="64" selection-start-line="3" selection-start-column="64" selection-end-line="3" selection-end-column="64" />
+            <state relative-caret-position="136">
+              <caret line="33" column="90" selection-start-line="33" selection-start-column="90" selection-end-line="33" selection-end-column="90" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/re_jobs_board/Jobs/job.ex">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="39">
+              <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/re_jobs_board/Jobs/field.ex">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/job.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="368">
               <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web/templates/layout/app.html.eex">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="115" selection-start-line="7" selection-start-column="115" selection-end-line="7" selection-end-column="115" />
             </state>
           </provider>
         </entry>
@@ -106,11 +129,9 @@
       <list>
         <option value="$PROJECT_DIR$/assets/.babelrc" />
         <option value="$PROJECT_DIR$/lib/re_jobs_board_web/views/api_view.ex" />
-        <option value="$PROJECT_DIR$/assets/css/app.css" />
         <option value="$PROJECT_DIR$/assets/js/react.js" />
         <option value="$PROJECT_DIR$/assets/js/hello.js" />
         <option value="$PROJECT_DIR$/lib/re_jobs_board/utils.ex" />
-        <option value="$PROJECT_DIR$/lib/re_jobs_board_web/templates/layout/app.html.eex" />
         <option value="$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/index.html.eex" />
         <option value="$PROJECT_DIR$/mix.exs" />
         <option value="$PROJECT_DIR$/lib/re_jobs_board/application.ex" />
@@ -127,10 +148,13 @@
         <option value="$PROJECT_DIR$/lib/re_jobs_board_web/controllers/api_controller.ex" />
         <option value="$PROJECT_DIR$/lib/re_jobs_board_web/controllers/page_controller.ex" />
         <option value="$PROJECT_DIR$/assets/js/app.js" />
-        <option value="$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/edit_job.html.eex" />
         <option value="$PROJECT_DIR$/assets/package.json" />
-        <option value="$PROJECT_DIR$/lib/re_jobs_board/Jobs/job.ex" />
         <option value="$PROJECT_DIR$/assets/js/job.js" />
+        <option value="$PROJECT_DIR$/assets/css/app.css" />
+        <option value="$PROJECT_DIR$/lib/re_jobs_board_web/templates/layout/app.html.eex" />
+        <option value="$PROJECT_DIR$/lib/re_jobs_board/Jobs/field.ex" />
+        <option value="$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/edit_job.html.eex" />
+        <option value="$PROJECT_DIR$/lib/re_jobs_board/Jobs/job.ex" />
       </list>
     </option>
   </component>
@@ -163,7 +187,7 @@
               <item name="re_jobs_board" type="b2602c69:ProjectViewProjectNode" />
               <item name="re_jobs_board" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="re_jobs_board" type="b2602c69:ProjectViewProjectNode" />
@@ -175,13 +199,6 @@
               <item name="re_jobs_board" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
               <item name="re_jobs_board" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="re_jobs_board" type="b2602c69:ProjectViewProjectNode" />
-              <item name="re_jobs_board" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="re_jobs_board" type="462c0819:PsiDirectoryNode" />
-              <item name="Jobs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="re_jobs_board" type="b2602c69:ProjectViewProjectNode" />
@@ -221,6 +238,7 @@
       <recent name="$PROJECT_DIR$/assets/js" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/re_jobs_board/Jobs" />
       <recent name="$PROJECT_DIR$/lib/re_jobs_board_web/templates/page" />
       <recent name="$PROJECT_DIR$/assets/js" />
       <recent name="$PROJECT_DIR$/lib/re_jobs_board_web/views" />
@@ -240,6 +258,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="976" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16214587" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -312,24 +331,10 @@
     <entry file="file://$PROJECT_DIR$/lib/re_jobs_board.ex">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web/templates/layout/app.html.eex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/re_jobs_board/utils.ex">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -453,13 +458,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/edit_job.html.eex">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board/Jobs/job.ex">
+    <entry file="file://$PROJECT_DIR$/assets/css/app.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
-          <caret line="3" column="64" selection-start-line="3" selection-start-column="64" selection-end-line="3" selection-end-column="64" />
+        <state relative-caret-position="219">
+          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web/templates/layout/app.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="115" selection-start-line="7" selection-start-column="115" selection-end-line="7" selection-end-column="115" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board/Jobs/field.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board_web/templates/page/edit_job.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="33" column="90" selection-start-line="33" selection-start-column="90" selection-end-line="33" selection-end-column="90" />
         </state>
       </provider>
     </entry>
@@ -467,6 +490,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/re_jobs_board/Jobs/job.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39">
+          <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
         </state>
       </provider>
     </entry>

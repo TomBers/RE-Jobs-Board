@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Radical Engineers</title>
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="/css/app.css">
     <meta name="description" content="We build teams of hackers and makers and pair them with radical organisations. We help organisations find technical solutions to specific problems, or assess what technologies and infrastructures may help them be more effective in their endeavours.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,16 +18,6 @@
   </head>
 
   <body>
-    <div class="banner" style="background-image: linear-gradient(to top,rgba(207, 2, 121, 0.95),rgba(227, 2, 133, 0.95)), url('images/lion_2.png');">
-      <div class="banner-content">
-        <h1>Radical <br> Engineers</h1>
-      </div>
-    </div>
-
-    <hr class="haar">
-
-    <div class = "bg-dark">
-      <h1>new block</h1>
 
     <main role="main" class="container">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
@@ -33,7 +25,6 @@
         <%= render @view_module, @view_template, assigns %>
     </main>
       <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
-    </div>
 
   </body>
 </html>
