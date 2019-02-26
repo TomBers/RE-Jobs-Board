@@ -1,11 +1,11 @@
 defmodule Job do
   use MakeEnumerable
 #  @derive {Jason.Encoder, only: [:name, :description, :id, :tags, :posted, :website, :owner, :ops]}
-  @derive {Jason.Encoder, only: [:id, :name, :bob]} #:topic, :posted, :ops]}
-  defstruct name: "", bob: "", topic: "", tags: [], posted: "", website: "", owner: "", ops: []
+  @derive {Jason.Encoder, only: [:id, :name, :topic, :tags]} # :name, :bob, :bill, :topic, :posted, :ops]}
+  defstruct name: "", bob: "", topic: "", bill: "", tags: "", posted: "", website: "", owner: "", ops: []
 
 
-  def new(), do: %Job{name: JobField.text_field(make_a_string()), bob: JobField.text_field(make_a_string()),topic: JobField.option_field("BOB", ["BILL", "BOB", "SPOON"]), tags: pick_words(3), posted: JobField.date_field(Faker.Date.between(~D[2019-01-01], ~D[2019-04-14])), website: Faker.Pokemon.name(), owner: Owner.new(), ops: []}
+  def new(), do: %Job{name: JobField.text_field(make_a_string()),topic: JobField.option_field("BOB", ["BILL", "BOB", "SPOON"]), tags: JobField.multiple_choice_field("A", ["A", "B", "C"]), posted: JobField.date_field(Faker.Date.between(~D[2019-01-01], ~D[2019-04-14])), website: Faker.Pokemon.name(), owner: Owner.new(), ops: []}
 
   def new(ops), do: %Job{name: pick_words(2) |> make_string, topic: pick_words(5) |> make_string, tags: pick_words(3), posted: Faker.Date.between(~D[2019-01-01], ~D[2019-04-14]), website: Faker.Pokemon.name(), owner: Owner.new(), ops: ops}
 
@@ -27,7 +27,7 @@ defmodule Job do
 
   def create_from_params(job, params) do
     [{k, v} | tail] = params
-    create_from_params(Map.update!(job, String.to_atom(k), fn(_) -> JobField.text_field(v) end), tail)
+    create_from_params(Map.update!(job, String.to_atom(k), fn(_) -> v end), tail)
   end
 
 end

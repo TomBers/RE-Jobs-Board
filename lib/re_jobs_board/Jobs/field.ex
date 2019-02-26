@@ -6,7 +6,9 @@ defmodule JobField do
 
   def text_field(value), do: %JobField{value: value, type: "TEXT", options: []}
 
-  def option_field(value, options), do: %JobField{value: value, type: "RADIO", options: options}
+  def option_field(value, options), do: %JobField{value: value, type: "OPTION", options: options}
+
+  def multiple_choice_field(value, options), do: %JobField{value: value, type: "MULTIPLECHOICE", options: options}
 
   def date_field(value), do: %JobField{value: value, type: "DATE", options: []}
 

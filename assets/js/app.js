@@ -36,11 +36,10 @@ function loadContent(jobId, boardId, quill) {
     .then((result) => renderResponse(result, quill));
 }
 
-function renderResponse(data, quill) {
+function renderResponse(data) {
   console.log(data);
   var formNode = document.getElementById("form");
   _.each(data, (v, k) => makeFormElement(formNode, v, k));
-  quill.setContents(data.ops)
 }
 
 function makeFormElement(node, val, key) {
@@ -49,6 +48,10 @@ function makeFormElement(node, val, key) {
   } else if (isObject(val)) {
       if (val.type === "TEXT") {
           renderTextInput(node, val.value, key);
+      } else if (val.type == "OPTION") {
+        renderOptionInput(node, val.value, val.options, key);
+      } else if (val.type == "MULTIPLECHOICE") {
+          renderMultipleChoiceInput(node, val.value, val.options, key);
       } else if (val.type === "RADIO") {
           renderRadioInput(node, val.value, val.options, key);
       } else if (val.type === "DATE") {
@@ -113,6 +116,49 @@ function renderRadioInput(node, val, options, key) {
   node.appendChild(div);
 }
 
+function renderOptionInput(node, val, options, key) {
+  var div = document.createElement('select');
+  div.setAttribute('name', key);
+  div.setAttribute('class', "browser-default")
+
+  _.each(options, (v) => {
+    var ele = document.createElement('option');
+    ele.setAttribute('value', v);
+    if (val === v) {
+      ele.setAttribute('selected', true);
+    }
+    ele.innerHTML = v;
+    div.appendChild(ele);
+  })
+
+  node.appendChild(div);
+}
+
+
+function renderMultipleChoiceInput(node, val, options, key) {
+  var div = document.createElement('div');
+
+  _.each(options, (v) => {
+    var p = document.createElement('p');
+    var label = document.createElement('label');
+    var inpt = document.createElement('input');
+    inpt.setAttribute('type', 'checkbox');
+    inpt.setAttribute('name', key);
+    if (val.indexOf(v) > -1) {
+      inpt.setAttribute('checked', "checked");
+    }
+    var span = document.createElement('span');
+    span.innerHTML = v;
+
+    label.appendChild(inpt);
+    label.appendChild(span);
+
+    p.appendChild(label);
+    div.appendChild(p);
+  })
+
+  node.appendChild(div);
+}
 
 function isObject(obj) {
   return obj === Object(obj);
