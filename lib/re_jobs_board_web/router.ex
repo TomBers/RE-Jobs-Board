@@ -20,7 +20,7 @@ defmodule ReJobsBoardWeb.Router do
     get "/board/:board_id", PageController, :board
     get "/board/:board_id/job/:id", PageController, :job
     get "/board/:board_id/job/:id/edit", PageController, :edit_job
-#    get "/board/:board_id/:criteria/:term", PageController, :board_filter
+    get "/board/:board_id/:criteria/:term", PageController, :board_filter
 #    get "/crash/:board_id", PageController, :crash
 #    get "/job/:id/board/:board_id", PageController, :job
     get "/add/job/:board_id", PageController, :add_random_job

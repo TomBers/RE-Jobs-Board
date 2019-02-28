@@ -1,5 +1,26 @@
 import React from "react";
 
+
+class Link extends React.Component {
+    render() {
+        return (<span><a href={`http://localhost:4000/board/${this.props.board}/${this.props.category}/${this.props.tag}`}>{this.props.text}</a> </span>)
+    }
+}
+
+class RenderLinks extends React.Component {
+  render() {
+    const {tag, value, boardId} = this.props
+    const processedVals = Array.isArray(value) ? value : [value]
+    let comps = []
+    processedVals.forEach((val) => comps.push(<Link board={boardId} category={tag} tag={val} text={val} key={val} />))    
+    return (
+      <div>
+      {comps}
+      </div>
+    )
+  }
+}
+
 class JobBlock extends React.Component {
   isObject(obj) {
     return obj === Object(obj);
@@ -13,7 +34,8 @@ class JobBlock extends React.Component {
    const objContext = this;
     return(
         <div className="flex-item">
-            {Object.keys(job).map((key, index) => key !== "id" ? <div key={key}>{key} : {objContext.getMapValue(key)}</div> : null)}
+            {/* Object.keys(job).map((key, index) => key !== "id" ? <div key={key}>{key} : {objContext.getMapValue(key)}</div> : null) */}
+            {Object.keys(job).map((key, index) => key !== "id" ? <RenderLinks tag={key} value={objContext.getMapValue(key)} boardId={this.props.boardId} key={key} /> : null)}
             <a href={url}>More</a>
         </div>
         )

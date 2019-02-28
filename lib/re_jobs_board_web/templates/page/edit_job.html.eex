@@ -33,7 +33,7 @@ document.getElementById("saveButton").addEventListener("click", function(){
                     selected.push(option.nextSibling.innerHTML);
                 }
                 })
-             data["tags"] = {"value": selected, "type": "MULTIPLECHOICE", "options": opts}
+             data[inpt.name] = {"value": selected, "type": "MULTIPLECHOICE", "options": opts}
          }
 
     });
@@ -42,8 +42,8 @@ document.getElementById("saveButton").addEventListener("click", function(){
     _.each(selects, (select) => {
         var indx = select.options.selectedIndex;
         var opts = []
-        _.each(select.options, (option) => opts.push(option.value))
-        data["topic"] = {"value": select.options[indx].value, "type": "OPTION", "options": opts}
+        _.each(select.options, (option, key) => opts.push(option.value))
+        data[select.name] = {"value": select.options[indx].value, "type": "OPTION", "options": opts}
      })
 
     const url = "http://localhost:4000/api/make/job/<%= @job_id %>/board/<%= @board_id %>"

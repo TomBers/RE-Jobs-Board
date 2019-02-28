@@ -4,7 +4,10 @@
 # If you run "mix test --cover", coverage assets end up here.
 /cover/
 /.idea/
+.idea
+.idea/
 .idea/workspace.xml
+/.idea/worspace.xml
 # The directory Mix downloads your dependencies sources to.
 /deps/
 
@@ -41,3 +44,5 @@ npm-debug.log
 # secrets files as long as you replace their contents by environment
 # variables.
 /config/*.secret.exs
+boards/
+.idea/

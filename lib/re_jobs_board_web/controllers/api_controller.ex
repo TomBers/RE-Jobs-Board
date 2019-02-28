@@ -2,8 +2,10 @@ defmodule ReJobsBoardWeb.APIController do
   use ReJobsBoardWeb, :controller
 
   def index(conn, %{"board_id" => board_id, "criteria" => criteria, "term" => term}) do
+
     pid = ServerHelper.get_server_from_id(board_id)
-    json conn, get_jobs(GenServer.call(pid, :list), criteria, term)
+    res = get_jobs(GenServer.call(pid, :list), criteria, term)
+    json conn, res
   end
 
   def get_jobs(board, "n", "a") do
@@ -19,7 +21,7 @@ defmodule ReJobsBoardWeb.APIController do
   def match_criteria(entry, "posted", term) do
     {:ok, dt, _} = DateTime.from_iso8601(term)
     limit = DateTime.to_date(dt)
-    case Date.compare(limit, entry.posted) do
+    case Date.compare(limit, entry.posted.value) do
       :gt -> false
       :lt -> true
       _ -> true
@@ -31,12 +33,12 @@ defmodule ReJobsBoardWeb.APIController do
     does_match(val, term)
   end
 
-  def does_match(value, term) when is_list(value) do
-    Enum.member?(value, term)
+  def does_match(value, term) when is_map(value) do
+    does_match(Map.get(value, "value"), term)
   end
 
-  def does_match(value, term) when is_map(value) do
-    Map.get(value, value.__struct__.match_criteria()) == term
+  def does_match(value, term) when is_list(value) do
+    Enum.member?(value, term)
   end
 
   def does_match(value, term) do

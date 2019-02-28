@@ -1,13 +1,13 @@
 defmodule Job do
   use MakeEnumerable
 #  @derive {Jason.Encoder, only: [:name, :description, :id, :tags, :posted, :website, :owner, :ops]}
-  @derive {Jason.Encoder, only: [:id, :name, :topic, :tags]} # :name, :bob, :bill, :topic, :posted, :ops]}
+  @derive {Jason.Encoder, only: [:id, :name, :topic, :tags, :posted]} # :name, :bob, :bill, :topic, :posted, :ops]}
   defstruct name: "", bob: "", topic: "", bill: "", tags: "", posted: "", website: "", owner: "", ops: []
 
 
-  def new(), do: %Job{name: JobField.text_field(make_a_string()),topic: JobField.option_field("BOB", ["BILL", "BOB", "SPOON"]), tags: JobField.multiple_choice_field("A", ["A", "B", "C"]), posted: JobField.date_field(Faker.Date.between(~D[2019-01-01], ~D[2019-04-14])), website: Faker.Pokemon.name(), owner: Owner.new(), ops: []}
+  def new(), do: %Job{name: JobField.text_field(make_a_string()),topic: JobField.option_field("BOB", ["BILL", "BOB", "SPOON"]), tags: JobField.multiple_choice_field("A", ["A", "B", "C"]), posted: JobField.date_field(Faker.Date.between(~D[2019-01-01], ~D[2019-04-14])), website: Faker.Pokemon.name(), ops: []}
 
-  def new(ops), do: %Job{name: pick_words(2) |> make_string, topic: pick_words(5) |> make_string, tags: pick_words(3), posted: Faker.Date.between(~D[2019-01-01], ~D[2019-04-14]), website: Faker.Pokemon.name(), owner: Owner.new(), ops: ops}
+  def new(ops), do: %Job{name: pick_words(2) |> make_string, topic: pick_words(5) |> make_string, tags: pick_words(3), posted: Faker.Date.between(~D[2019-01-01], ~D[2019-04-14]), website: Faker.Pokemon.name(), ops: ops}
 
   def make_a_string do
     pick_words(2) |> make_string
