@@ -33,8 +33,8 @@ defmodule ReJobsBoardWeb.APIController do
     does_match(val, term)
   end
 
-  def does_match(value, term) when is_map(value) do
-    does_match(Map.get(value, "value"), term)
+  def does_match(map, term) when is_map(map) do
+    does_match(map.value, term)
   end
 
   def does_match(value, term) when is_list(value) do
