@@ -23,6 +23,14 @@ defmodule ReJobsBoardWeb.PageController do
     conn |> redirect(to: "/board/#{board_id}")
   end
 
+  def add_ten_job(conn, %{"board_id" => board_id}) do
+    pid = ServerHelper.get_server_from_id(board_id)
+    1..10 |> Enum.each(fn(_) -> GenServer.call(pid, :new_job) end)
+
+    conn |> redirect(to: "/board/#{board_id}")
+  end
+
+
   def add_random_job(conn, %{"board_id" => board_id}) do
     pid = ServerHelper.get_server_from_id(board_id)
     board = GenServer.call(pid, :new_job)

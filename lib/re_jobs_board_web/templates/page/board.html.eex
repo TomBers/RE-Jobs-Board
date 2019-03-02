@@ -1,6 +1,8 @@
 <div id="date"></div>
 <div id="app"></div>
 <%= link("Add Job", to: "/add/job/#{@board_id}") %>
+<br />
+<%= link("Add 10 Jobs", to: "/add/ten/job/#{@board_id}") %>
 
 
     <script>
