@@ -3,7 +3,6 @@ defmodule ReJobsBoardWeb.APIController do
 
   def index(conn, %{"board_id" => board_id, "criteria" => criteria, "term" => term}) do
     pid = ServerHelper.get_server_from_id(board_id)
-
     res = get_jobs(GenServer.call(pid, :list), criteria, term)
     json conn, res.entries |> Enum.map(fn({_id, entry}) -> entry end)
   end
@@ -13,7 +12,7 @@ defmodule ReJobsBoardWeb.APIController do
     filters = raw_filters |> Enum.map(fn(filter) -> extract_filters(filter) end)
     res = get_jobs(GenServer.call(pid, :list), filters)
     dat = res.entries |> Enum.map(fn({_id, entry}) -> entry end)
-    IO.inspect(dat)
+
     json conn, dat
   end
 
@@ -61,6 +60,10 @@ defmodule ReJobsBoardWeb.APIController do
 
   def does_match(map, term) when is_map(map) do
     does_match(map.value, term)
+  end
+
+  def does_match(value, term) when is_list(term) do
+    Enum.member?(term, value)
   end
 
   def does_match(value, term) when is_list(value) do

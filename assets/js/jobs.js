@@ -35,7 +35,7 @@ class JobBlock extends React.Component {
     return(
         <div className="flex-item">
             {/* Object.keys(job).map((key, index) => key !== "id" ? <div key={key}>{key} : {objContext.getMapValue(key)}</div> : null) */}
-            {Object.keys(job).map((key, index) => key !== "id" ? <RenderLinks tag={key} value={objContext.getMapValue(key)} boardId={this.props.boardId} key={key} /> : null)}            
+            {Object.keys(job).map((key, index) => key !== "id" ? <RenderLinks tag={key} value={objContext.getMapValue(key)} boardId={this.props.boardId} key={key} /> : null)}
         </div>
         )
     }
@@ -51,7 +51,18 @@ export default class Jobs extends React.Component {
      };
   }
       componentDidMount() {
-        fetch("http://localhost:4000/api/board/" + this.props.boardId + "/" + this.props.criteria + '/' + this.props.term)
+        fetch("http://localhost:4000/api/board/" + this.props.boardId + "/search", {
+              method: "POST",
+              mode: "cors",
+              cache: "no-cache",
+              credentials: "same-origin",
+              headers: {
+                  "Content-Type": "application/json",
+              },
+              redirect: "follow",
+              referrer: "no-referrer",
+              body: this.props.filters,
+          })
           .then(res => res.json())
           .then(
             (result) => {

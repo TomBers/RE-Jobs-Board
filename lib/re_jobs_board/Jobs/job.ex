@@ -1,7 +1,7 @@
 defmodule Job do
   use MakeEnumerable
 #  @derive {Jason.Encoder, only: [:name, :description, :id, :tags, :posted, :website, :owner, :ops]}
-  @derive {Jason.Encoder, only: [:id, :name, :topic, :tags, :posted, :location, :required_skills]}
+  @derive {Jason.Encoder, only: [:id, :required_skills, :location]} #:name, :topic, :tags, :posted, ,
   defstruct name: "", bob: "", topic: "", bill: "", tags: "", posted: "", website: "", owner: "", ops: [], location: [], required_skills: []
 
   @tags ["A", "B", "C"]

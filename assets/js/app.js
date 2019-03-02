@@ -22,8 +22,9 @@ function renderDateFilter(boardId) {
     ReactDOM.render(<DateFilter boardId={boardId} />, dateNode);
 }
 
-function renderJobs(boardId, criteria, term) {
-    ReactDOM.render(<Jobs boardId={boardId} criteria={criteria} term={term} />, mountNode);
+function renderJobs(boardId, filters) {
+    ReactDOM.unmountComponentAtNode(mountNode);
+    ReactDOM.render(<Jobs boardId={boardId} filters={filters} />, mountNode);
 }
 
 function renderJob(id, boardId) {
