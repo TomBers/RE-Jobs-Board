@@ -18,6 +18,7 @@ defmodule ReJobsBoardWeb.Router do
 
     get "/", PageController, :index
     get "/board/:board_id", PageController, :board
+    get "board/:board_id/search", PageController, :search
     get "/board/:board_id/job/:id", PageController, :job
     get "/board/:board_id/job/:id/edit", PageController, :edit_job
     get "/board/:board_id/:criteria/:term", PageController, :board_filter
@@ -35,5 +36,6 @@ defmodule ReJobsBoardWeb.Router do
      get "/board/:board_id/:criteria/:term", APIController, :index
      get "/job/:id/board/:board_id", APIController, :job
      post"/make/job/:id/board/:board_id", APIController, :make_job
+     post"/board/:board_id/search", APIController, :filter_entries
    end
 end

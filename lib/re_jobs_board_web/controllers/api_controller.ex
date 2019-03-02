@@ -3,14 +3,22 @@ defmodule ReJobsBoardWeb.APIController do
 
   def index(conn, %{"board_id" => board_id, "criteria" => criteria, "term" => term}) do
     pid = ServerHelper.get_server_from_id(board_id)
-    filters = [
-      {"topic", "BILL"},
-      {"location", "Manchester"},
-      {"required_skills", "Data"}
-    ]
 
-    res = get_jobs(GenServer.call(pid, :list), filters)
+    res = get_jobs(GenServer.call(pid, :list), criteria, term)
     json conn, res.entries |> Enum.map(fn({_id, entry}) -> entry end)
+  end
+
+  def filter_entries(conn, %{"board_id" => board_id, "filters" => raw_filters}) do
+    pid = ServerHelper.get_server_from_id(board_id)
+    filters = raw_filters |> Enum.map(fn(filter) -> extract_filters(filter) end)
+    res = get_jobs(GenServer.call(pid, :list), filters)
+    dat = res.entries |> Enum.map(fn({_id, entry}) -> entry end)
+    IO.inspect(dat)
+    json conn, dat
+  end
+
+  def extract_filters({key, map}) do
+    {key, map["value"]}
   end
 
   def get_jobs(board, []) do
@@ -19,7 +27,6 @@ defmodule ReJobsBoardWeb.APIController do
 
   def get_jobs(board, filters) when is_list(filters) do
     [{criteria, term} | tail] = filters
-    IO.inspect(criteria)
     new_board = get_jobs(board, criteria, term)
     get_jobs(new_board,  tail)
   end
