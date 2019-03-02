@@ -36,35 +36,136 @@ function loadContent(jobId, boardId, quill) {
     .then((result) => renderResponse(result, quill));
 }
 
-function renderResponse(data, quill) {
+function renderResponse(data) {
+  console.log(data);
   var formNode = document.getElementById("form");
   _.each(data, (v, k) => makeFormElement(formNode, v, k));
-  quill.setContents(data.ops)
 }
 
 function makeFormElement(node, val, key) {
   if (typeof val === 'string' || val instanceof String) {
-    var div = document.createElement('div');
-    var label = document.createElement('label');
-    label.setAttribute("for", key);
-    label.innerHTML = key
+    renderTextInput(node, val, key);
+  } else if (isObject(val)) {
+      if (val.type === "TEXT") {
+          renderTextInput(node, val.value, key);
+      } else if (val.type == "OPTION") {
+        renderOptionInput(node, val.value, val.options, key);
+      } else if (val.type == "MULTIPLECHOICE") {
+          renderMultipleChoiceInput(node, val.value, val.options, key);
+      } else if (val.type === "RADIO") {
+          renderRadioInput(node, val.value, val.options, key);
+      } else if (val.type === "DATE") {
+          renderDateInput(node, val.value, val.options, key);
+      }
 
-    var ele = document.createElement('input');
-    ele.setAttribute('id', key);
-    ele.setAttribute('value', val);
-
-    div.appendChild(label);
-    div.appendChild(ele);
-    node.appendChild(div);
   }
 }
 
+function renderTextInput(node, val, key) {
+  var div = document.createElement('div');
+  var label = document.createElement('label');
+  label.setAttribute("for", key);
+  label.innerHTML = key
 
-function sendToServer() {
-    const url = "http://localhost:4000/api/make/job/<%= @job_id %>/board/<%= @board_id %>"
-    var delta = quill.getContents();
-    var data = JSON.stringify(delta);
+  var ele = document.createElement('input');
+  ele.setAttribute('id', key);
+  ele.setAttribute('value', val);
 
+  div.appendChild(label);
+  div.appendChild(ele);
+  node.appendChild(div);
+}
+
+function renderDateInput(node, val, key) {
+  var div = document.createElement('div');
+  var label = document.createElement('label');
+  label.setAttribute("for", key);
+  label.innerHTML = key
+
+  var ele = document.createElement('input');
+  ele.setAttribute('type', 'date')
+  ele.setAttribute('id', key);
+  ele.setAttribute('value', val);
+
+  div.appendChild(label);
+  div.appendChild(ele);
+  node.appendChild(div);
+}
+
+
+
+function renderRadioInput(node, val, options, key) {
+  var div = document.createElement('p');
+
+  _.each(options, (v) => {
+    var label = document.createElement('label');
+    var ele = document.createElement('input');
+    ele.setAttribute('value', v);
+    ele.setAttribute('name', key);
+    ele.setAttribute('type', 'radio');
+    if (val === v) {
+      ele.setAttribute('checked', true);
+    }
+    label.appendChild(ele);
+    var txt = document.createElement('span');
+    txt.innerHTML = v;
+    label.appendChild(txt);
+    div.appendChild(label);
+  })
+
+  node.appendChild(div);
+}
+
+function renderOptionInput(node, val, options, key) {
+  var div = document.createElement('select');
+  div.setAttribute('name', key);
+  div.setAttribute('class', "browser-default")
+
+  _.each(options, (v) => {
+    var ele = document.createElement('option');
+    ele.setAttribute('value', v);
+    if (val === v) {
+      ele.setAttribute('selected', true);
+    }
+    ele.innerHTML = v;
+    div.appendChild(ele);
+  })
+
+  node.appendChild(div);
+}
+
+
+function renderMultipleChoiceInput(node, val, options, key) {
+  var div = document.createElement('div');
+
+  _.each(options, (v) => {
+    var p = document.createElement('p');
+    var label = document.createElement('label');
+    var inpt = document.createElement('input');
+    inpt.setAttribute('type', 'checkbox');
+    inpt.setAttribute('name', key);
+    if (val.indexOf(v) > -1) {
+      inpt.setAttribute('checked', "checked");
+    }
+    var span = document.createElement('span');
+    span.innerHTML = v;
+
+    label.appendChild(inpt);
+    label.appendChild(span);
+
+    p.appendChild(label);
+    div.appendChild(p);
+  })
+
+  node.appendChild(div);
+}
+
+function isObject(obj) {
+  return obj === Object(obj);
+}
+
+
+function sendToServer(url, data) {
     fetch(url, {
           method: "POST",
           mode: "cors",

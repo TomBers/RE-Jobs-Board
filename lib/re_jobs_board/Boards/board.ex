@@ -4,7 +4,7 @@ defmodule Board do
   defstruct auto_id: 1, entries: %{}, name: ""
 
 
-  def new(), do: %Board{}
+  def new(), do: %Board{name: Faker.Pokemon.name()}
 
   def new(name), do: %Board{name: name}
 

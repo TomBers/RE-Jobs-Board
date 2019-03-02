@@ -1,17 +1,18 @@
 /* This file is for your main application css. */
 
-/*.flex-container {
+flex-container {
  display: flex;
  flex-direction: row;
  flex-wrap: wrap;
-}*/
+}
 
-/*.flex-item {
+.flex-item {
+  display: inline-block;
   margin-top: 20px;
   margin-left: 20px;
   padding: 10px;
   border: 1px solid black;
-}*/
+}
 
 /*Banner*/
 
@@ -19,8 +20,6 @@ body {
   margin: 0px;
   font-weight: 300;
   font-family: 'Rubik', serif;
-  color: white;
-  background-color: #E30285;
 }
 
 .banner {

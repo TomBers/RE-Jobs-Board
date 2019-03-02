@@ -27,7 +27,7 @@ defmodule ReJobsBoardWeb.PageController do
     pid = ServerHelper.get_server_from_id(board_id)
     board = GenServer.call(pid, :new_job)
     id = board.auto_id - 1
-    conn |> redirect(to: "/edit/job/#{id}/board/#{board_id}")
+    conn |> redirect(to: "/board/#{board_id}/job/#{id}/edit")
   end
 
   def edit_job(conn, %{"id" => id, "board_id" => board_id}) do

@@ -18,6 +18,7 @@
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/gettext" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/gproc" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/jason" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/make_enumerable" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/mime" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/phoenix" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/phoenix_ecto" />
@@ -73,5 +74,6 @@
     <orderEntry type="library" name="faker" level="project" />
     <orderEntry type="library" name="credo" level="project" />
     <orderEntry type="library" name="dialyxir" level="project" />
+    <orderEntry type="library" name="make_enumerable" level="project" />
   </component>
 </module>

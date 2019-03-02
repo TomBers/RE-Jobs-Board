@@ -44,7 +44,8 @@ defmodule ReJobsBoard.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:gproc, "~> 0.5.0"},
-      {:faker, "~> 0.12"}
+      {:faker, "~> 0.12"},
+      {:make_enumerable, "~> 0.0.1"}
     ]
   end
 

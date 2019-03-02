@@ -11,16 +11,20 @@ class Link extends React.Component {
 
 
 class JobPosting extends React.Component {
+  isObject(obj) {
+    return obj === Object(obj);
+  }
+  getMapValue(key) {
+    return this.isObject(this.props.job[key]) ? this.props.job[key].value : this.props.job[key]
+  }
  render() {
+   const job = this.props.job
     const tags = this.props.job.hasOwnProperty('tags') ? this.props.job.tags.map((tag) => <Link value={tag} category={"tags"} text={tag} board={this.props.board} key={tag}/>) : [];
-    const owner = this.props.job.hasOwnProperty('owner') ? <Link value={this.props.job.owner.name} category={"owner"} text={this.props.job.owner.name} board={this.props.board} /> : [];
-    const d = new Date(this.props.job.posted);
+    const owner = this.props.job.hasOwnProperty('owner') ? <Link value={this.props.job.owner.name} category={"owner"} text={this.props.job.owner.name} board={this.props.board} /> : [];    
+    const objContext = this;
     return  (
         <div className="flex-item">
-            <strong>Title: {this.props.job.name}</strong> <br />
-            Description: {this.props.job.description} <br />
-            Tags: {tags} <br />
-            Posted: {d.toString()} <br />
+            {Object.keys(job).map((key, index) => key !== "id" ? <div key={key}>{key} : {objContext.getMapValue(key)}</div> : null)}
             <ReactQuill value={this.props.job.ops} theme={null} readOnly={true} /><br />
             {owner}
         </div>
@@ -72,7 +76,7 @@ export default class Job extends React.Component {
         } else {
           return (
           <div className="flex-container">
-             <JobPosting job={job} board={this.props.boardId} key={job.name} />
+             <JobPosting job={job} board={this.props.boardId} key={job.id} />
           </div>
           );
         }
