@@ -12,7 +12,8 @@ class Link extends React.Component {
 
 class JobPosting extends React.Component {
  render() {
-    const tags = this.props.job.tags.map((tag) => <Link value={tag} category={"tags"} text={tag} board={this.props.board} key={tag}/>)
+    const tags = this.props.job.hasOwnProperty('tags') ? this.props.job.tags.map((tag) => <Link value={tag} category={"tags"} text={tag} board={this.props.board} key={tag}/>) : [];
+    const owner = this.props.job.hasOwnProperty('owner') ? <Link value={this.props.job.owner.name} category={"owner"} text={this.props.job.owner.name} board={this.props.board} /> : [];
     const d = new Date(this.props.job.posted);
     return  (
         <div className="flex-item">
@@ -21,7 +22,7 @@ class JobPosting extends React.Component {
             Tags: {tags} <br />
             Posted: {d.toString()} <br />
             <ReactQuill value={this.props.job.ops} theme={null} readOnly={true} /><br />
-            <Link value={this.props.job.owner.name} category={"owner"} text={this.props.job.owner.name} board={this.props.board} />
+            {owner}
         </div>
         )
     }

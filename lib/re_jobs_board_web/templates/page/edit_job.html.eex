@@ -2,9 +2,10 @@
 <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
 <!-- Create the editor container -->
+<div id="form"></div>
 <div id="editor"></div>
 
-<button type="button" onclick="sendToServer()">Click Me!</button>
+<button type="button" onclick="window.sendToServer()">Save</button>
 <!-- Include the Quill library -->
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
@@ -18,6 +19,7 @@
         [{ 'font': [] }],
         [{ 'align': [] }]];
 
+document.addEventListener("DOMContentLoaded", function(event) {
   var quill = new Quill('#editor', {
     theme: 'snow',
     modules: {
@@ -25,29 +27,9 @@
       }
   });
 
-  loadContent("<%= @job_id %>", "<%= @board_id %>");
+  window.loadContent("<%= @job_id %>", "<%= @board_id %>", quill);
+})
 
-  function loadContent(jobId, boardId) {
-    fetch("http://localhost:4000/api/job/" + jobId + "/board/" + boardId).then(res => res.json()).then((result) => quill.setContents(result.ops));
-   }
 
-  function sendToServer() {
-  const url = "http://localhost:4000/api/make/job/<%= @job_id %>/board/<%= @board_id %>"
-  var delta = quill.getContents();
 
-  var data = JSON.stringify(delta);
-
-  fetch(url, {
-          method: "POST",
-          mode: "cors",
-          cache: "no-cache",
-          credentials: "same-origin",
-          headers: {
-              "Content-Type": "application/json",
-          },
-          redirect: "follow",
-          referrer: "no-referrer",
-          body: data,
-      })
-  }
 </script>

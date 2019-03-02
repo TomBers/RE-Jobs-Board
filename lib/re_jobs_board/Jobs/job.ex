@@ -1,6 +1,7 @@
 defmodule Job do
 
-  @derive {Jason.Encoder, only: [:name, :description, :id, :tags, :posted, :website, :owner, :ops]}
+#  @derive {Jason.Encoder, only: [:name, :description, :id, :tags, :posted, :website, :owner, :ops]}
+  @derive {Jason.Encoder, only: [:name, :description, :posted, :ops]}
   defstruct name: "", description: "", tags: [], posted: "", website: "", owner: "", ops: []
 
 
