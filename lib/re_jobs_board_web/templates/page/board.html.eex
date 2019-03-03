@@ -8,7 +8,14 @@
     <script>
         document.addEventListener("DOMContentLoaded", function(event) {
         window.renderDateFilter("<%= @board_id %>");
-        var data = JSON.stringify({filters: []});
+        var criteria = "<%= @criteria %>";
+        var term = "<%= @term %>";
+        var dat = {};
+        dat[criteria] = {"value":term}
+        var raw = {"filters": dat}
+        var data = JSON.stringify(raw);
+        console.log(data)
+
         window.renderJobs("<%= @board_id %>", data);
         });
     </script>
