@@ -1,8 +1,8 @@
 defmodule Job do
   use MakeEnumerable
 #  @derive {Jason.Encoder, only: [:name, :description, :id, :tags, :posted, :website, :owner, :ops]}
-  @derive {Jason.Encoder, only: [:id, :name, :topic, :tags, :posted, :location, :required_skils]}
-  defstruct name: "", bob: "", topic: "", bill: "", tags: "", posted: "", website: "", owner: "", ops: [], location: [], required_skils: []
+  @derive {Jason.Encoder, only: [:id, :required_skills, :location]} #:name, :topic, :tags, :posted, ,
+  defstruct name: "", bob: "", topic: "", bill: "", tags: "", posted: "", website: "", owner: "", ops: [], location: [], required_skills: []
 
   @tags ["A", "B", "C"]
   @topics ["BILL", "BOB", "SPOON"]
@@ -16,7 +16,7 @@ defmodule Job do
     posted: JobField.date_field(Faker.Date.between(~D[2019-01-01], ~D[2019-04-14])),
     website: Faker.Pokemon.name(),
     location: JobField.option_field(Enum.random(@locations), @locations),
-    required_skils: JobField.multiple_choice_field(Enum.random(@skills), @skills),
+    required_skills: JobField.multiple_choice_field(Enum.random(@skills), @skills),
     ops: []
   }
 

@@ -2,20 +2,45 @@ defmodule ReJobsBoardWeb.APIController do
   use ReJobsBoardWeb, :controller
 
   def index(conn, %{"board_id" => board_id, "criteria" => criteria, "term" => term}) do
-
     pid = ServerHelper.get_server_from_id(board_id)
     res = get_jobs(GenServer.call(pid, :list), criteria, term)
-    json conn, res
+    json conn, res.entries |> Enum.map(fn({_id, entry}) -> entry end)
+  end
+
+  def filter_entries(conn, %{"board_id" => board_id, "filters" => raw_filters}) do
+    pid = ServerHelper.get_server_from_id(board_id)
+    filters = raw_filters |> Enum.map(fn(filter) -> extract_filters(filter) end)
+    res = get_jobs(GenServer.call(pid, :list), filters)
+    dat = res.entries |> Enum.map(fn({_id, entry}) -> entry end)
+
+    json conn, dat
+  end
+
+  def extract_filters({key, map}) do
+    {key, map["value"]}
+  end
+
+  def get_jobs(board, []) do
+    board
+  end
+
+  def get_jobs(board, filters) when is_list(filters) do
+    [{criteria, term} | tail] = filters
+    new_board = get_jobs(board, criteria, term)
+    get_jobs(new_board,  tail)
   end
 
   def get_jobs(board, "n", "a") do
-    board.entries |> Enum.map(fn({_id, entry}) -> entry end)
+    board
   end
 
   def get_jobs(board, criteria, term) do
-    board.entries
+    new_entries = board.entries
       |> Enum.filter(fn({_id, entry}) -> match_criteria(entry, criteria, term) end)
-      |> Enum.map(fn({_id, entry}) -> entry end)
+    case new_entries do
+      [] -> board
+      _ -> Map.replace(board, :entries, new_entries)
+    end
   end
 
   def match_criteria(entry, "posted", term) do
@@ -35,6 +60,10 @@ defmodule ReJobsBoardWeb.APIController do
 
   def does_match(map, term) when is_map(map) do
     does_match(map.value, term)
+  end
+
+  def does_match(value, term) when is_list(term) do
+    Enum.member?(term, value)
   end
 
   def does_match(value, term) when is_list(value) do

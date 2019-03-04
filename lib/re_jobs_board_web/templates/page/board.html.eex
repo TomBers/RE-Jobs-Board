@@ -1,11 +1,21 @@
 <div id="date"></div>
 <div id="app"></div>
 <%= link("Add Job", to: "/add/job/#{@board_id}") %>
+<br />
+<%= link("Add 10 Jobs", to: "/add/ten/job/#{@board_id}") %>
 
 
     <script>
         document.addEventListener("DOMContentLoaded", function(event) {
         window.renderDateFilter("<%= @board_id %>");
-        window.renderJobs("<%= @board_id %>", "<%= @criteria %>", "<%= @term %>");
+        var criteria = "<%= @criteria %>";
+        var term = "<%= @term %>";
+        var dat = {};
+        dat[criteria] = {"value":term}
+        var raw = {"filters": dat}
+        var data = JSON.stringify(raw);
+        console.log(data)
+
+        window.renderJobs("<%= @board_id %>", data);
         });
     </script>

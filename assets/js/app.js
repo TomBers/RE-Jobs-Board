@@ -22,31 +22,29 @@ function renderDateFilter(boardId) {
     ReactDOM.render(<DateFilter boardId={boardId} />, dateNode);
 }
 
-function renderJobs(boardId, criteria, term) {
-    ReactDOM.render(<Jobs boardId={boardId} criteria={criteria} term={term} />, mountNode);
+function renderJobs(boardId, filters) {
+    ReactDOM.unmountComponentAtNode(mountNode);
+    ReactDOM.render(<Jobs boardId={boardId} filters={filters} />, mountNode);
 }
 
 function renderJob(id, boardId) {
     ReactDOM.render(<Job id={id} boardId={boardId} />, mountNode);
 }
 
-function loadContent(jobId, boardId, quill) {
+function loadContent(jobId, boardId, loadTextInputs) {
     fetch("http://localhost:4000/api/job/" + jobId + "/board/" + boardId)
     .then(res => res.json())
-    .then((result) => renderResponse(result, quill));
+    .then((result) => renderResponse(result, loadTextInputs));
 }
 
-function renderResponse(data) {
+function renderResponse(data, loadTextInputs) {
   console.log(data);
   var formNode = document.getElementById("form");
-  _.each(data, (v, k) => makeFormElement(formNode, v, k));
+  _.each(data, (v, k) => makeFormElement(formNode, v, k, loadTextInputs));
 }
 
-function makeFormElement(node, val, key) {
-  if (typeof val === 'string' || val instanceof String) {
-    renderTextInput(node, val, key);
-  } else if (isObject(val)) {
-      if (val.type === "TEXT") {
+function makeFormElement(node, val, key, loadTextInputs) {
+      if (val.type === "TEXT" && loadTextInputs) {
           renderTextInput(node, val.value, key);
       } else if (val.type == "OPTION") {
         renderOptionInput(node, val.value, val.options, key);
@@ -54,11 +52,9 @@ function makeFormElement(node, val, key) {
           renderMultipleChoiceInput(node, val.value, val.options, key);
       } else if (val.type === "RADIO") {
           renderRadioInput(node, val.value, val.options, key);
-      } else if (val.type === "DATE") {
+      } else if (val.type === "DATE" && loadTextInputs) {
           renderDateInput(node, val.value, val.options, key);
       }
-
-  }
 }
 
 function renderTextInput(node, val, key) {
@@ -166,7 +162,7 @@ function isObject(obj) {
 
 
 function sendToServer(url, data) {
-    fetch(url, {
+    return fetch(url, {
           method: "POST",
           mode: "cors",
           cache: "no-cache",

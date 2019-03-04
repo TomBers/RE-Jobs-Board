@@ -9,6 +9,11 @@ defmodule ReJobsBoardWeb.PageController do
     render(conn, "board.html", board_id: id, criteria: "n", term: "a")
   end
 
+  def search(conn, %{"board_id" => id}) do
+    render(conn, "search.html", board_id: id)
+  end
+
+
   def board_filter(conn, %{"board_id" => id, "criteria" => criteria, "term" => term}) do
     render(conn, "board.html", board_id: id, criteria: criteria, term: term)
   end
@@ -22,6 +27,14 @@ defmodule ReJobsBoardWeb.PageController do
     GenServer.cast(pid, :crash)
     conn |> redirect(to: "/board/#{board_id}")
   end
+
+  def add_ten_job(conn, %{"board_id" => board_id}) do
+    pid = ServerHelper.get_server_from_id(board_id)
+    1..10 |> Enum.each(fn(_) -> GenServer.call(pid, :new_job) end)
+
+    conn |> redirect(to: "/board/#{board_id}")
+  end
+
 
   def add_random_job(conn, %{"board_id" => board_id}) do
     pid = ServerHelper.get_server_from_id(board_id)
