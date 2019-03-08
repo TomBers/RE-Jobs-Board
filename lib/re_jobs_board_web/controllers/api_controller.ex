@@ -15,17 +15,14 @@ defmodule ReJobsBoardWeb.APIController do
   end
 
   def filter_entries(conn, %{"board_id" => board_id, "filters" => raw_filters}) do
-    IO.inspect(raw_filters)
     pid = ServerHelper.get_server_from_id(board_id)
     filters = raw_filters |> Enum.map(fn(filter) -> extract_filters(filter) end)
     res = get_jobs(GenServer.call(pid, :list), filters)
     dat = res.entries |> Enum.map(fn({_id, entry}) -> entry end)
-    IO.inspect(dat)
     json conn, dat
   end
 
   def update_schema(conn, %{"board_id" => board_id, "fields" => fields}) do
-    IO.inspect(fields)
     pid = ServerHelper.get_server_from_id(board_id)
     GenServer.cast(pid, {:set_schema, fields})
     json conn, []
@@ -70,7 +67,7 @@ defmodule ReJobsBoardWeb.APIController do
   end
 
   def match_criteria(entry, criteria, term) do
-    val = Map.get(entry, criteria)
+    val = Map.get(entry, String.to_atom(criteria))
     does_match(val, term)
   end
 
@@ -79,11 +76,7 @@ defmodule ReJobsBoardWeb.APIController do
   end
 
   def does_match(value, term) when is_list(term) do
-    Enum.member?(term, value)
-  end
-
-  def does_match(value, term) when is_list(value) do
-    Enum.member?(value, term)
+    term |> Enum.map(fn(x) -> Enum.member?(value, x) end) |> Enum.any?
   end
 
   def does_match(value, term) do

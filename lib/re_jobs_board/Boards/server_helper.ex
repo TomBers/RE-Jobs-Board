@@ -13,8 +13,6 @@ defmodule ServerHelper do
 
   def make_sample_schema do
     %{
-      name: JobField.text_field(),
-      single_choice: JobField.option_field(["A", "B", "C"]),
       multi_choice: JobField.multiple_choice_field((["D", "E", "F"]))
     }
   end
