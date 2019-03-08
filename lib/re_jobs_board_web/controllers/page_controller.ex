@@ -22,6 +22,10 @@ defmodule ReJobsBoardWeb.PageController do
     render(conn, "job.html", board_id: board_id, job: id)
   end
 
+  def edit_schema(conn, %{"board_id" => board_id}) do
+    render(conn, "edit_schema.html", board_id: board_id)
+  end
+
   def crash(conn, %{"board_id" => board_id}) do
     pid = ServerHelper.get_server_from_id(board_id)
     GenServer.cast(pid, :crash)

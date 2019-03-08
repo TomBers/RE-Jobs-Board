@@ -1,7 +1,7 @@
 defmodule Board do
-  @derive {Jason.Encoder, only: [:entries]}
+  @derive {Jason.Encoder, only: [:entries, :schema]}
 
-  defstruct auto_id: 1, entries: %{}, name: ""
+  defstruct auto_id: 1, entries: %{}, name: "", schema: %{}
 
 
   def new(), do: %Board{name: Faker.Pokemon.name()}
@@ -14,6 +14,10 @@ defmodule Board do
       new(),
       fn(entry, acc) -> add_entry(acc, entry) end
     )
+  end
+
+  def set_schema(board, schema) do
+    %Board{board | schema: schema}
   end
 
   def add_entry(board, entry) do
