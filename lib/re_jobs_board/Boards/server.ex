@@ -54,7 +54,7 @@ defmodule BoardServer do
   end
 
   def handle_call({:get_item, id}, _, state) do
-    {:reply, state.entries[id], state}
+    {:reply, {state.schema, state.entries[id]}, state}
   end
 
   def handle_call(:new_job, _, state) do

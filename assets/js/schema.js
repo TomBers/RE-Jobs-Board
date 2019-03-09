@@ -39,11 +39,12 @@ export default class Schema extends React.Component {
   render() {
     return <div>
       {Object.keys(this.state.elements).map((key, index) => <RenderElement fieldName={key} value={this.state.elements[key]} updateOption={(a, b, c) => this.updateOption(a,b,c)} updateType={(a, b) => this.updateType(a,b)} key={key} />)}
-      <a href="#" onClick={(e) => {e.preventDefault; this.addEle()} }>
+      <br /><br />
+      <a href="#" className="btn btn-primary" onClick={(e) => {e.preventDefault; this.addEle()} }>
       Add field
     </a>
     <br /><br />
-    <a href="#" onClick={(e) => {e.preventDefault; this.saveSchema()} }>
+    <a href="#" className="btn indigo darken-2" onClick={(e) => {e.preventDefault; this.saveSchema()} }>
     Save Schema
   </a>
       </div>
@@ -64,7 +65,7 @@ class RenderElement extends React.Component {
         <input defaultValue={fieldName} />
         <select name="single_choice" className="browser-default" defaultValue={value.type} onChange={this.changeSelect.bind(this)}><option value="TEXT">Text</option><option value="OPTION">Single Choice</option><option value="MULTIPLECHOICE">MULTIPLE CHOICE</option></select>
         {value.options.map((v) => <div key={v}>{v}</div>)}
-        <a href="#" onClick={(e) => {e.preventDefault; this.addOption(fieldName, value.type)} }>Add option</a>
+        <a href="#" className="btn cyan lighten-2" onClick={(e) => {e.preventDefault; this.addOption(fieldName, value.type)} }>Add option</a>
       </div>)
   }
 }

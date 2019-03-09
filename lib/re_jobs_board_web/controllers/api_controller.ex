@@ -18,7 +18,7 @@ defmodule ReJobsBoardWeb.APIController do
     pid = ServerHelper.get_server_from_id(board_id)
     filters = raw_filters |> Enum.map(fn(filter) -> extract_filters(filter) end)
     res = get_jobs(GenServer.call(pid, :list), filters)
-    dat = res.entries |> Enum.map(fn({_id, entry}) -> entry end)
+    dat = res.entries |> Enum.map(fn({_id, entry}) -> Map.merge(res.schema, entry) end)
     json conn, dat
   end
 
@@ -67,7 +67,7 @@ defmodule ReJobsBoardWeb.APIController do
   end
 
   def match_criteria(entry, criteria, term) do
-    val = Map.get(entry, String.to_atom(criteria))
+    val = Map.get(entry, criteria)
     does_match(val, term)
   end
 
@@ -85,7 +85,8 @@ defmodule ReJobsBoardWeb.APIController do
 
   def job(conn, %{"id" => id, "board_id" => board_id}) do
     pid = ServerHelper.get_server_from_id(board_id)
-    json conn, GenServer.call(pid, {:get_item, String.to_integer(id)})
+    {schema, job} = GenServer.call(pid, {:get_item, String.to_integer(id)})
+    json conn, Map.merge(schema, job)
   end
 
   def make_job(conn, params) do
