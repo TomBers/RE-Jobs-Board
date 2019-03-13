@@ -13,6 +13,7 @@ defmodule JobField do
   def multiple_choice_field(options), do: %JobField{value: "", type: "MULTIPLECHOICE", options: options}
   def multiple_choice_field(value, options), do: %JobField{value: value, type: "MULTIPLECHOICE", options: options}
 
+  def date_field(), do: %JobField{value: DateTime.utc_now(), type: "DATE", options: []}
   def date_field(value), do: %JobField{value: value, type: "DATE", options: []}
 
 end

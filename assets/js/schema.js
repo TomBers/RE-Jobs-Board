@@ -38,7 +38,7 @@ export default class Schema extends React.Component {
   }
   render() {
     return <div>
-      {Object.keys(this.state.elements).map((key, index) => <RenderElement fieldName={key} value={this.state.elements[key]} updateOption={(a, b, c) => this.updateOption(a,b,c)} updateType={(a, b) => this.updateType(a,b)} key={key} />)}
+      {Object.keys(this.state.elements).map((key, index) => this.state.elements[key].type !== "DATE" ? <RenderElement fieldName={key} value={this.state.elements[key]} updateOption={(a, b, c) => this.updateOption(a,b,c)} updateType={(a, b) => this.updateType(a,b)} key={key} /> : null)}
       <br /><br />
       <a href="#" className="btn btn-primary" onClick={(e) => {e.preventDefault; this.addEle()} }>
       Add field

@@ -32,7 +32,7 @@ function renderJob(id, boardId) {
     ReactDOM.render(<Job id={id} boardId={boardId} />, mountNode);
 }
 
-function loadContent(url, boardId, func, loadTextInputs) {    
+function loadContent(url, boardId, func, loadTextInputs) {
     fetch(url)
     .then(res => res.json())
     .then((result) => {func(result, boardId, loadTextInputs); console.log(result)});
@@ -58,7 +58,8 @@ function makeFormElement(node, val, key, loadTextInputs) {
       } else if (val.type === "RADIO") {
           renderRadioInput(node, val.value, val.options, key);
       } else if (val.type === "DATE" && loadTextInputs) {
-          renderDateInput(node, val.value, val.options, key);
+          // Do not render date
+          return
       }
 }
 

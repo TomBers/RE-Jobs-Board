@@ -36,7 +36,7 @@ class JobBlock extends React.Component {
     return(
         <div className="flex-item">
             {/* Object.keys(job).map((key, index) => key !== "id" ? <div key={key}>{key} : {objContext.getMapValue(key)}</div> : null) */}
-            {Object.keys(job).map((key, index) => key !== "id" ? <RenderLinks tag={key} value={objContext.getMapValue(key)} boardId={this.props.boardId} key={key} /> : null)}
+            {Object.keys(job).map((key, index) => (key !== "id" && key !== "posted") ? <RenderLinks tag={key} value={objContext.getMapValue(key)} boardId={this.props.boardId} key={key} /> : null)}
             <a href={editUrl} target="_blank">Edit Job</a>
         </div>
         )
