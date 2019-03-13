@@ -31,11 +31,13 @@ class JobBlock extends React.Component {
  render() {
    const job = this.props.job
    const url = "http://localhost:4000/job/" + job.id + "/board/"+ this.props.boardId
+   const editUrl = "http://localhost:4000/board/" + this.props.boardId + "/job/" + job.id + "/edit"
    const objContext = this;
     return(
         <div className="flex-item">
             {/* Object.keys(job).map((key, index) => key !== "id" ? <div key={key}>{key} : {objContext.getMapValue(key)}</div> : null) */}
-            {Object.keys(job).map((key, index) => key !== "id" ? <RenderLinks tag={key} value={objContext.getMapValue(key)} boardId={this.props.boardId} key={key} /> : null)}
+            {Object.keys(job).map((key, index) => (key !== "id" && key !== "posted") ? <RenderLinks tag={key} value={objContext.getMapValue(key)} boardId={this.props.boardId} key={key} /> : null)}
+            <a href={editUrl} target="_blank">Edit Job</a>
         </div>
         )
     }

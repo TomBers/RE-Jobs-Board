@@ -6,8 +6,18 @@ defmodule ServerHelper do
 
   defp return_pid(id, :undefined) do
     {:ok, server} = DynamicSupervisor.start_child(ServerSupervisor, {BoardServer, id})
-    IO.inspect(server)
+
+    GenServer.cast(server, {:set_schema, make_sample_schema()})
     server
+  end
+
+  def make_sample_schema do
+    %{
+      text: JobField.text_field(),
+      single_choice: JobField.option_field(["A", "B", "C"]),
+      multi_choice: JobField.multiple_choice_field((["D", "E", "F"])),
+      posted: JobField.date_field()
+    }
   end
 
   defp return_pid(id, pid) do

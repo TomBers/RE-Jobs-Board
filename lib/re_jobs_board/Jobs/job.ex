@@ -39,7 +39,7 @@ defmodule Job do
 
   def create_from_params(job, params) do
     [{k, v} | tail] = params
-    create_from_params(Map.update!(job, String.to_atom(k), fn(_) -> v end), tail)
+    create_from_params(Map.update(job, k, v, fn(_) -> v end), tail)
   end
 
 end

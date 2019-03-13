@@ -13,13 +13,16 @@ defmodule ReJobsBoardWeb.PageController do
     render(conn, "search.html", board_id: id)
   end
 
-
   def board_filter(conn, %{"board_id" => id, "criteria" => criteria, "term" => term}) do
     render(conn, "board.html", board_id: id, criteria: criteria, term: term)
   end
 
   def job(conn, %{"id" => id, "board_id" => board_id}) do
     render(conn, "job.html", board_id: board_id, job: id)
+  end
+
+  def edit_schema(conn, %{"board_id" => board_id}) do
+    render(conn, "edit_schema.html", board_id: board_id)
   end
 
   def crash(conn, %{"board_id" => board_id}) do

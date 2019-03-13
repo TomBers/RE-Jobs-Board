@@ -1,0 +1,13 @@
+<div id="form"></div>
+
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+         var url = "http://localhost:4000/api/board/<%= @board_id %>/schema"
+         window.loadContent(url,"<%= @board_id %>", window.renderSchema, true);
+         var elems = document.querySelectorAll('select');
+         var instances = M.FormSelect.init(elems);
+     });
+    </script>

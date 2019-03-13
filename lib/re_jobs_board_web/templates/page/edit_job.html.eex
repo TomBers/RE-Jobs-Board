@@ -10,7 +10,9 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function(event) {
-    window.loadContent("<%= @job_id %>", "<%= @board_id %>", true);
+
+    var url = "http://localhost:4000/api/job/<%= @job_id %>/board/<%= @board_id %>"
+    window.loadContent(url, "<%= @board_id %>", window.renderResponse, true);
     var elems = document.querySelectorAll('select');
     var instances = M.FormSelect.init(elems);
     });

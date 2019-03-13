@@ -5,6 +5,7 @@ import ReactDOM from "react-dom";
 
 import Jobs from "./jobs.js"
 import Job from "./job.js"
+import Schema from "./schema.js"
 import DateFilter from "./dateFilter.js"
 
 //     Underscore.js 1.9.1
@@ -31,14 +32,18 @@ function renderJob(id, boardId) {
     ReactDOM.render(<Job id={id} boardId={boardId} />, mountNode);
 }
 
-function loadContent(jobId, boardId, loadTextInputs) {
-    fetch("http://localhost:4000/api/job/" + jobId + "/board/" + boardId)
+function loadContent(url, boardId, func, loadTextInputs) {
+    fetch(url)
     .then(res => res.json())
-    .then((result) => renderResponse(result, loadTextInputs));
+    .then((result) => {func(result, boardId, loadTextInputs); console.log(result)});
 }
 
-function renderResponse(data, loadTextInputs) {
-  console.log(data);
+function renderSchema(data, boardId, loadTextInputs) {
+  var node = document.getElementById("form");
+  ReactDOM.render(<Schema data={data} boardId={boardId} sendToServer={sendToServer} />, node);
+}
+
+function renderResponse(data, boardId, loadTextInputs) {
   var formNode = document.getElementById("form");
   _.each(data, (v, k) => makeFormElement(formNode, v, k, loadTextInputs));
 }
@@ -53,7 +58,8 @@ function makeFormElement(node, val, key, loadTextInputs) {
       } else if (val.type === "RADIO") {
           renderRadioInput(node, val.value, val.options, key);
       } else if (val.type === "DATE" && loadTextInputs) {
-          renderDateInput(node, val.value, val.options, key);
+          // Do not render date
+          return
       }
 }
 
@@ -177,11 +183,13 @@ function sendToServer(url, data) {
 }
 
 
+window.loadContent = loadContent
+window.renderResponse = renderResponse
+window.renderSchema = renderSchema
 window.renderDateFilter = renderDateFilter
 window.renderJobs = renderJobs
 window.renderJob = renderJob
 window.sendToServer = sendToServer
-window.loadContent = loadContent
 
 // Import local files
 //

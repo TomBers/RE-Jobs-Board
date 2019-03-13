@@ -40,6 +40,11 @@ defmodule BoardServer do
     {:noreply, []}
   end
 
+  def handle_cast({:set_schema, schema}, state) do
+    {:noreply, Board.set_schema(state, schema)}
+  end
+
+
   def handle_cast({:remove_job, job}, state) do
     {:noreply, Board.remove_entry(state, job)}
   end
@@ -49,11 +54,11 @@ defmodule BoardServer do
   end
 
   def handle_call({:get_item, id}, _, state) do
-    {:reply, state.entries[id], state}
+    {:reply, {state.schema, state.entries[id]}, state}
   end
 
   def handle_call(:new_job, _, state) do
-    board = Board.add_entry(state, Job.new())
+    board = Board.add_entry(state, state.schema)
     set_board(board)
     {:reply, board, board}
   end

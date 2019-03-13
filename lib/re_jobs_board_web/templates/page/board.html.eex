@@ -1,8 +1,10 @@
 <div id="date"></div>
 <div id="app"></div>
-<%= link("Add Job", to: "/add/job/#{@board_id}") %>
-<br />
-<%= link("Add 10 Jobs", to: "/add/ten/job/#{@board_id}") %>
+<br /><br />
+<%= link("Add Job", to: "/add/job/#{@board_id}", class: "btn btn-primary") %>
+<br /><br />
+
+<%= link("Edit Board", to: "/board/#{@board_id}/edit", class: "btn btn-primary") %>
 
 
     <script>
