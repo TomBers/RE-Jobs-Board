@@ -13,9 +13,9 @@ defmodule ServerHelper do
 
   def make_sample_schema do
     %{
-      text: JobField.text_field(),
-      single_choice: JobField.option_field(["A", "B", "C"]),
-      multi_choice: JobField.multiple_choice_field((["D", "E", "F"])),
+      name: JobField.text_field(),
+      location: JobField.option_field(["London", "Manchester", "Amsterdam"]),
+      skills: JobField.multiple_choice_field((["Developer", "Data scientist", "Project manager"])),
       posted: JobField.date_field()
     }
   end

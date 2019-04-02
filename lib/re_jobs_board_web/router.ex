@@ -37,7 +37,7 @@ defmodule ReJobsBoardWeb.Router do
      get "/board/:board_id/schema", APIController, :get_schema
      post "/board/:board_id/schema", APIController, :get_schema
      post "/board/:board_id/schema/update", APIController, :update_schema
-     get "/board/:board_id/:criteria/:term", APIController, :index
+#     get "/board/:board_id/:criteria/:term", APIController, :index
      get "/job/:id/board/:board_id", APIController, :job
      post"/make/job/:id/board/:board_id", APIController, :make_job
    end

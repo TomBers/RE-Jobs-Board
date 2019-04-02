@@ -106,3 +106,7 @@ hr.haar {
   font-size: 60px;
   }
 }
+
+.search-heading {
+   text-transform: capitalize;
+}
