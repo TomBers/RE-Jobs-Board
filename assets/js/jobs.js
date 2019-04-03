@@ -15,11 +15,12 @@ class RenderLinks extends React.Component {
     processedVals.forEach((val) => comps.push(<Link board={boardId} category={tag} tag={val} text={val} key={val} />))
     return (
       <div>
-      {tag} => {comps}
+      {tag} :: {comps}
       </div>
     )
   }
 }
+
 
 class JobBlock extends React.Component {
   isObject(obj) {

@@ -97,6 +97,8 @@ function renderDateInput(node, val, key) {
 
 
 function renderRadioInput(node, val, options, key) {
+
+
   var div = document.createElement('p');
 
   _.each(options, (v) => {
@@ -119,6 +121,13 @@ function renderRadioInput(node, val, options, key) {
 }
 
 function renderOptionInput(node, val, options, key) {
+    var h = document.createElement("H4");
+    h.setAttribute('class', 'search-heading');
+    var t = document.createTextNode(key);
+    h.appendChild(t);
+    node.appendChild(h);
+
+  options.unshift("No preference");
   var div = document.createElement('select');
   div.setAttribute('name', key);
   div.setAttribute('class', "browser-default")
@@ -138,6 +147,11 @@ function renderOptionInput(node, val, options, key) {
 
 
 function renderMultipleChoiceInput(node, val, options, key) {
+      var h = document.createElement("H4");
+      h.setAttribute('class', 'search-heading');
+      var t = document.createTextNode(key);
+      h.appendChild(t);
+      node.appendChild(h);
   var div = document.createElement('div');
 
   _.each(options, (v) => {
