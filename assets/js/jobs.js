@@ -15,7 +15,7 @@ class RenderLinks extends React.Component {
     processedVals.forEach((val) => comps.push(<Link board={boardId} category={tag} tag={val} text={val} key={val} />))
     return (
       <div>
-      {tag} => {comps}
+      {tag}: {comps}
       </div>
     )
   }
@@ -33,7 +33,7 @@ class JobBlock extends React.Component {
    const url = "http://localhost:4000/job/" + job.id + "/board/"+ this.props.boardId
    const objContext = this;
     return(
-        <div className="flex-item">
+        <div className="flex-item card-demo">
             {/* Object.keys(job).map((key, index) => key !== "id" ? <div key={key}>{key} : {objContext.getMapValue(key)}</div> : null) */}
             {Object.keys(job).map((key, index) => key !== "id" ? <RenderLinks tag={key} value={objContext.getMapValue(key)} boardId={this.props.boardId} key={key} /> : null)}
         </div>
