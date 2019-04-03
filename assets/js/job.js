@@ -1,5 +1,4 @@
 import React from "react";
-import ReactQuill from 'react-quill';
 
 
 class Link extends React.Component {
@@ -20,12 +19,11 @@ class JobPosting extends React.Component {
  render() {
    const job = this.props.job
     const tags = this.props.job.hasOwnProperty('tags') ? this.props.job.tags.map((tag) => <Link value={tag} category={"tags"} text={tag} board={this.props.board} key={tag}/>) : [];
-    const owner = this.props.job.hasOwnProperty('owner') ? <Link value={this.props.job.owner.name} category={"owner"} text={this.props.job.owner.name} board={this.props.board} /> : [];    
+    const owner = this.props.job.hasOwnProperty('owner') ? <Link value={this.props.job.owner.name} category={"owner"} text={this.props.job.owner.name} board={this.props.board} /> : [];
     const objContext = this;
     return  (
         <div className="flex-item">
             {Object.keys(job).map((key, index) => key !== "id" ? <div key={key}>{key} : {objContext.getMapValue(key)}</div> : null)}
-            <ReactQuill value={this.props.job.ops} theme={null} readOnly={true} /><br />
             {owner}
         </div>
         )

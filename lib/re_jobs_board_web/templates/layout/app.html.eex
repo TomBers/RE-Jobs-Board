@@ -18,6 +18,23 @@
   </head>
 
   <body>
+<!--     <div class="banner" style="background-image: linear-gradient(to top,rgba(207, 2, 121, 0.95),rgba(227, 2, 133, 0.95)), url('images/lion_2.png');">
+      <div class="banner-content">
+        <h1>Radical <br> Engineers</h1>
+      </div>
+    </div> -->
+
+    <!-- <hr class="haar">
+
+    <div class="bg-white">
+      <h2 class="caps">Job board</h1>
+      <p>Search bar</p>
+    </div>
+
+    <div class="bg-green">
+      <h2 class="caps">Current projects</h1>
+
+    </div> -->
 
     <main role="main" class="container">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>

@@ -1,16 +1,17 @@
 defmodule Job do
   use MakeEnumerable
 #  @derive {Jason.Encoder, only: [:name, :description, :id, :tags, :posted, :website, :owner, :ops]}
-  @derive {Jason.Encoder, only: [:id, :required_skills, :location]} #:name, :topic, :tags, :posted, ,
-  defstruct name: "", bob: "", topic: "", bill: "", tags: "", posted: "", website: "", owner: "", ops: [], location: [], required_skills: []
+  @derive {Jason.Encoder, only: [:name, :description, :id, :required_skills, :location]} #:name, :topic, :tags, :posted, ,
+  defstruct name: "", description: "", bob: "", topic: "", bill: "", tags: "", posted: "", website: "", owner: "", ops: [], location: [], required_skills: []
 
   @tags ["A", "B", "C"]
   @topics ["BILL", "BOB", "SPOON"]
-  @locations ["Birmingham", "Manchester", "Glasgow"]
+  @locations ["London", "Birmingham", "Manchester", "Glasgow", "Amsterdam"]
   @skills ["Front_End", "Back_End", "Data"]
 
   def new(), do: %Job{
     name: JobField.text_field(make_a_string()),
+    description: JobField.text_field(make_a_string()),
     topic: JobField.option_field(Enum.random(@topics), @topics),
     tags: JobField.multiple_choice_field(Enum.random(@tags), @tags),
     posted: JobField.date_field(Faker.Date.between(~D[2019-01-01], ~D[2019-04-14])),
